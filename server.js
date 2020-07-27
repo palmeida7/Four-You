@@ -62,6 +62,8 @@ if (process.env.NODE_ENV !== 'production') {
     } catch {
       res.redirect('/register')
     }
+    //check---------
+    console.log.apply(users)
   })
   //logout
   app.delete('/logout', (req, res) => {
