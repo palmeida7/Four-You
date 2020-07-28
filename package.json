@@ -1,0 +1,27 @@
+{
+  "name": "full-stack-project",
+  "version": "1.0.0",
+  "description": "Team leader clone then do :",
+  "main": "api-routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:install": "createdb foryou && psql foryou < install.sql",
+    "db:seed": "psql foryou < seed.sql"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikecadima/Full-Stack-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikecadima/Full-Stack-Project/issues"
+  },
+  "homepage": "https://github.com/mikecadima/Full-Stack-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "pg-promise": "^10.5.8"
+  }
+}
