@@ -4,7 +4,7 @@ require("./api-routes")(app);//sets the api
 const pgp = require('pg-promise')();
 const connect = require('./config');
 const db = pgp(connect);
-const port = 5434;
+const port = 3445;
 
 
 app.use(express.json());
