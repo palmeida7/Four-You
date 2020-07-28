@@ -1,82 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+		/>
 
-    <title>Login</title>
-</head>
-<body>
-    <!-- navbar -------------------------->
-   <nav class="navbar is-black">
-       <div class="container">
-           <div class="navbar-brand">
-               <a href="" class="navbar-item" style="font-weight: bold;">
-                ForYou
-               </a>
-               <span class="navbar-burger burger" data-target="navMenu">
-                   <span></span>
-                   <span></span>
-                   <span></span>
-               </span>
-           </div>
-       </div>
-       <div id="navMenu" class="navbar-menu">
-           <div class="navbar-end">
-               <a href="#" class="navbar-item is-active">Home</a>
-               <a href="#" class="navbar-item">Profile</a>
-               <a href="#" class="navbar-item">Blog</a>
-               <a href="#" class="navbar-item">Extras</a>
-               <a href="#" class="navbar-item">About</a>
-           </div>
-       </div>
-       
-   </nav>
+		<title>Login</title>
+	</head>
+	<body>
+        <!-- navbar -------------------------->
+        <nav class="navbar is-black">
+			<div class="container">
+				<div class="navbar-brand">
+					<a href="" class="navbar-item" style="font-weight: bold;">
+						ForYou
+                    </a>
+					<span class="navbar-burger burger" data-target="navMenu">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</div>
+			</div>
+			<div id="navMenu" class="navbar-menu">
+				<div class="navbar-end">
+					<a href="#" class="navbar-item is-active">Home</a>
+					<a href="#" class="navbar-item">Profile</a>
+					<a href="#" class="navbar-item">Blog</a>
+					<a href="#" class="navbar-item">Extras</a>
+					<a href="#" class="navbar-item">About</a>
+				</div>
+			</div> 
+        </nav>
 
+		<!-- login section -->
+		<section class="hero is-light">
+			<div class="hero-body">
+				<div class="container">
+					<div class="columns is-centered">
+						<div class="column is-4">
+							<h1 class="title">Landing Page</h1>
+							<% if (messages.error) { %> <%= messages.error %> <% } %>
+							<form class="box" action="/login" method="POST">
+								<div>
+									<label class="subtitle" for="email">Email</label>
+									<input type="email" id="email" name="email" required />
+								</div>
+								<div>
+									<label class="subtitle" for="password">Password</label>
+									<input
+										type="password"
+										id="password"
+										name="password"
+										required
+									/>
+								</div>
+								<button type="submit">Login</button>
+							</form>
+							<a href="/register">Register</a>
+						</div>
+					</div>
+				</div>
+            </div>
+        
+		</section>
 
-<!-- login section -->
-    <section class="hero is-light ">
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-4">
-    <h1 class="title">Landing Page</h1>
-<% if (messages.error) { %>
-<%= messages.error %>
-<% } %>
-<form class="box" action="/login" method="POST">
+		<script>
+			(function () {
+				var burger = document.querySelector(".burger");
+				var nav = document.querySelector("#" + burger.dataset.target);
 
-<div>
-    <label class="subtitle" for="email">Email</label>
-    <input type="email" id="email" name="email"
-    required>
-</div>
-<div>
-    <label class="subtitle" for="password">Password</label>
-    <input type="password" id="password" name="password"
-    required>
-</div>
-<button type="submit">Login</button>
-</form>
-<a href="/register">Register</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<script>
-    (function(){
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#'+burger.dataset.target);
-
-        burger.addEventListener('click',function(){
-            burger.classList.toggle('is-active');
-            nav.classList.toggle('is-active');
-        });
-    })();
-</script>
-</body>
+				burger.addEventListener("click", function () {
+					burger.classList.toggle("is-active");
+					nav.classList.toggle("is-active");
+				});
+			})();
+		</script>
+	</body>
 </html>
