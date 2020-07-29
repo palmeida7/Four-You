@@ -23,7 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(express.urlencoded({ extended: false }))
   app.use(flash())
   app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: "process.env.SESSION_SECRET", 
     resave: false,
     saveUninitialized: false
   }))
