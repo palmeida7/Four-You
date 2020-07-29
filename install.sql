@@ -3,12 +3,6 @@ CREATE TABLE users (
     username VARCHAR(20),
     password VARCHAR(20),
     email VARCHAR(80),
-    img image,
+    img VARCHAR,
     dateofbirth date,
-);
-
-CREATE TABLE avatar (
-    id SERIAL PRIMARY KEY,
-    profile_img BYTEA,
-    bio TEXT
 );
