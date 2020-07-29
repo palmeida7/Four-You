@@ -6,9 +6,3 @@ CREATE TABLE users (
     img VARCHAR,
     dateofbirth date,
 );
-
-CREATE TABLE acct (
-    id SERIAL PRIMARY KEY,
-    profile_img BYTEA,
-    bio TEXT
-);

@@ -14,13 +14,11 @@ document.getElementById("avatar").addEventListener("change", avReadFile, false);
 export default avReadFile
 
 export let imguploadToServer = (evt) =>{
-    //best to commit it as such
     const formData = new FormData();
     formData.append('imgupload', file);
 
-    //not nessessay if you are just uploading a single image
-    formData.append('username','value_from_another_form_item' )//etc
-    formData.append('Some_other_DB_filed','AnotherValue' )//etc
+    formData.append('username','value_from_another_form_item' )
+    formData.append('Some_other_DB_filed','AnotherValue' )
 
     console.log(formData);
     fetch('/image-uploaded', {
@@ -33,5 +31,5 @@ export let imguploadToServer = (evt) =>{
 
 }
 
-document.getElementById("imgupload").addEventListener("input", avReadFile);//Whenever you change the image
-document.getElementById("submit").addEventListener("click", imguploadToServer);//when you hit the submit button
+document.getElementById("imgupload").addEventListener("input", avReadFile);
+document.getElementById("submit").addEventListener("click", imguploadToServer);

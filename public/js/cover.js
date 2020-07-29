@@ -14,13 +14,11 @@ document.getElementById("cover").addEventListener("change", coReadFile, false);
 export default coReadFile
 
 export let cimguploadToServer = (evt) =>{
-    //best to commit it as such
     const formData = new FormData();
     formData.append('cimgupload', file);
 
-    //not nessessay if you are just uploading a single image
-    formData.append('username','value_from_another_form_item' )//etc
-    formData.append('Some_other_DB_filed','AnotherValue' )//etc
+    formData.append('username','value_from_another_form_item' )
+    formData.append('Some_other_DB_filed','AnotherValue' )
 
     console.log(formData);
     fetch('/image-uploaded', {
@@ -33,6 +31,6 @@ export let cimguploadToServer = (evt) =>{
 
 }
 
-document.getElementById("cimgupload").addEventListener("input", coReadFile);//Whenever you change the image
-document.getElementById("submit").addEventListener("click", cimguploadToServer);//when you hit the submit button
+document.getElementById("cimgupload").addEventListener("input", coReadFile);
+document.getElementById("submit").addEventListener("click", cimguploadToServer);
 
