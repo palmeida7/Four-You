@@ -1,25 +1,37 @@
-let file = "";
+let profile = "";
+let cover = "";
 
-function avReadFile(evt) {
-    console.log(evt.target.files[0]);
+function ReadFile(evt,imgType) {
+    console.log(imgType)
     let FR= new FileReader();
     FR.onload = function(e) {
-        document.getElementById("imgupload").src = e.target.result;
+        // document.getElementById(imgType).src = e.target.result;
+        if (imgType == "cover"){
+            document.getElementById("coimg").src = e.target.result;
+        } else if (imgType == "avatar"){
+            document.getElementById("poimg").src = e.target.result;
+        }
     };
     FR.readAsDataURL(evt.target.files[0]);
-    file = evt.target.files[0];
+    if (imgType == "avatar"){
+        profile = evt.target.files[0]; 
     }
-document.getElementById("avatar").addEventListener("change", avReadFile, false);
+    if (imgType == "cover"){
+        cover = evt.target.files[0];
+    }
+}
+document.getElementById("avatar").addEventListener("change", (evt)=>ReadFile(evt,"avatar"), false);
+document.getElementById("cover").addEventListener("change", (evt)=>ReadFile(evt,"cover"), false);
 
-export default avReadFile
+
+export default ReadFile
 
 export let imguploadToServer = (evt) =>{
     const formData = new FormData();
-    formData.append('imgupload', file);
-
-    formData.append('username','value_from_another_form_item' )
-    formData.append('Some_other_DB_filed','AnotherValue' )
-
+    formData.append('pro_upload', profile);
+    formData.append('cover_upload',cover);
+    // formData.append('full_name',document.getElementById('fullname').value);
+    // formData.append('bio',document.getElementById('bio').value);
     console.log(formData);
     fetch('/image-uploaded', {
         method:'POST',
@@ -31,5 +43,5 @@ export let imguploadToServer = (evt) =>{
 
 }
 
-document.getElementById("imgupload").addEventListener("input", avReadFile);
+// document.getElementById("imgupload").addEventListener("input", ReadFile);
 document.getElementById("submit").addEventListener("click", imguploadToServer);

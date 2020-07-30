@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:install": "createdb foryou && psql foryou < install.sql",
     "db:seed": "psql foryou < seed.sql",
+    "db:reset": "dropdb foryou && npm run db:install",
     "devStart": "nodemon server.js"
   },
   "repository": {
