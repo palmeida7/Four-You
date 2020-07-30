@@ -3,7 +3,6 @@ CREATE TABLE users (
     username VARCHAR(20),
     password VARCHAR(20),
     email VARCHAR(80),
-    img VARCHAR,
     dateofbirth date
 );
 
@@ -22,6 +21,7 @@ CREATE TABLE images (
 
 CREATE TABLE profile (
 	id SERIAL PRIMARY KEY,
+    owner_id INT REFERENCES users(id),
 	full_name VARCHAR,
 	pro_id INT REFERENCES images(id),
 	cov_id INT REFERENCES images(id),
