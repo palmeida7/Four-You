@@ -6,7 +6,8 @@ const connect = require('./config');
 const db = pgp(connect);
 const formidable = require('formidable');
 const port = 3445;
-
+const crudroutes = require('./crud')
+crudroutes(app,db)
 
 app.use(express.json());
 app.use(express.static("public"));
