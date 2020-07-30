@@ -8,6 +8,8 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
         />
+        <link rel="shortcut icon" href="/favicon-fy.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon-fy.ico" type="image/x-icon">
 		<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 	</head>
 	<body>
@@ -17,8 +19,8 @@
 		<nav class="navbar is-black" role="navigation" aria-label="main navigation">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="https://bulma.io">
-					<img src="Icon_fourYou.png"/>
-					<img src="fourYOU.png"/>
+					<img src="./img/Icon_fourYou.png"/>
+					<img src="./img/fourYOU.png"/>
                 </a>
                 
                     <a class="navbar-item">
@@ -83,7 +85,7 @@
                     <div class="field">
                         <label class="label has-text-white">Full Name</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="full name">
+                            <input id="fullname" name="fullname" class="input" type="text" placeholder="full name">
                             <span class="icon is-small is-left">
                                 <i class="fa fa-user"></i>
                             </span>
@@ -98,8 +100,9 @@
                     </div>
 
                     <div class="file is-boxed">
-                        <label class="file-label">
-                            <input class="file-input" type="file" name="resume">
+                        <label for="avatar" class="file-label">
+                            <img class="ava-img image is-128x128 mb-4" src="http://www.ukm.my/portal/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" id="poimg">
+                            <input id="avatar" class="file-input" type="file" name="avatar"> 
                                 <span class="file-cta">
                                     <span class="file-icon">
                                         <i class="fas fa-upload"></i>
@@ -119,8 +122,9 @@
 </div>
 
 <div class="file is-boxed">
-    <label class="file-label">
-        <input class="file-input" type="file" name="resume">
+    <label for="cover" class="file-label ">
+        <img class="cov-img image is-128x128 mb-4" src="https://pflugerville-vortexsportscenter.com/wp-content/uploads/2017/04/default-image-800x600.jpg" id="coimg">
+        <input id="cover" class="file-input" type="file" name="cover">
             <span class="file-cta">
                 <span class="file-icon">
                     <i class="fas fa-upload"></i>
@@ -138,7 +142,7 @@
 <div class="field">
     <label class="label has-text-white mt-4">Bio</label>
     <div class="control">
-        <textarea class="textarea is-primary" placeholder="enter bio here..."></textarea>
+        <textarea id="bio" name="bio" class="textarea is-primary" placeholder="enter bio here..."></textarea>
     </div>
 </div>
 
@@ -147,11 +151,12 @@
 <!-- SUBMIT BUTTON -->
 <!-- //////////////////////////////////////////////////////////////////////// -->
                     <section>
-                        <div class="button is-primary mt-4">S U B M I T</div>
+                        <button id="submit" class="button is-primary mt-4">S U B M I T</button>
                     </section>
                 </div>
             </div>
         </section>
+        <script src="/js/main.js" type="module"></script>
     </body>
 
     <!-- CREATE / EDIT PROFILE END -->
