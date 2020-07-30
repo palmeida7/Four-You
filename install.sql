@@ -27,8 +27,8 @@ CREATE TABLE profile (
 
 CREATE TABLE blogs (
   bid SERIAL PRIMARY KEY,
-  title VARCHAR(255),
-  body VARCHAR,
+  title VARCHAR(20),
+  blog_text VARCHAR(255),
   user_id INT REFERENCES users(id),
   author VARCHAR REFERENCES users(username),
   date_created TIMESTAMP,
