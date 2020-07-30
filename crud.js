@@ -29,9 +29,9 @@ app.get("/blog", async (req, res) => {
 
 app.put("/blog/:id", async (req, res) => {
     try {
-      let title_result = await db.one(`
+      let text_change = await db.one(`
       UPDATE blogs
-      SET description = '${req.body.title}'
+      SET blog_text = '${req.body.blog_text}'
       WHERE id = '${req.params.id}' RETURNING *
     `);
     res.send(title_result);
