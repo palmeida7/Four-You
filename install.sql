@@ -3,12 +3,27 @@ CREATE TABLE users (
     username VARCHAR(20),
     password VARCHAR(20),
     email VARCHAR(80),
-    img image,
-    dateofbirth date,
+    dateofbirth date
 );
 
-CREATE TABLE avatar (
+CREATE TYPE IMG_TYPE AS ENUM (
+    'profile',
+    'cover',
+    'blog'
+);
+
+CREATE TABLE images (
     id SERIAL PRIMARY KEY,
-    profile_img BYTEA,
-    bio TEXT
+    owner_id INT REFERENCES users(id),
+    img_type  IMG_TYPE,
+    img_url VARCHAR
+);
+
+CREATE TABLE profile (
+	id SERIAL PRIMARY KEY,
+    owner_id INT REFERENCES users(id),
+	full_name VARCHAR,
+	pro_id INT REFERENCES images(id),
+	cov_id INT REFERENCES images(id),
+	bio VARCHAR(255)
 );
