@@ -54,6 +54,7 @@
 <!-- NAVBAR REGISTER BUTTONS -->
 <!-- //////////////////////////////////////////////////////////////////////// -->
 
+
 				<div class="navbar-end">
 					<div class="navbar-item">
 						<div class="buttons">
@@ -82,7 +83,7 @@
                 <div class="container">
                     <h1 class="title has-text-white">Create / Edit Profile</h1>
 
-                    <div class="field">
+                    <div class="field" style="width: 300px">
                         <label class="label has-text-white">Full Name</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="fullname" name="fullname" class="input" type="text" placeholder="full name">
@@ -99,20 +100,22 @@
                         <label class="label has-text-white mt-4">Profile Image</label>
                     </div>
 
-                    <div class="file is-boxed">
+                    <div class="file is-small">
                         <label for="avatar" class="file-label">
                             <img class="ava-img image is-128x128 mb-4" src="http://www.ukm.my/portal/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" id="poimg">
                             <input id="avatar" class="file-input" type="file" name="avatar"> 
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                    </span>
-                                    <span class="file-label">
-                                        Choose a file…
-                                    </span>
-                                </span>
                         </label>
                     </div>
+<!-- FILE UPLOAD BUTTON -->
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            
+                            <span class="file-label">
+                                Choose a file...
+                            </span>
+                        </span>
 
 
 <!-- COVER IMAGE SECTION  -->
@@ -121,25 +124,32 @@
     <label class="label has-text-white mt-4">Cover Image</label>
 </div>
 
-<div class="file is-boxed">
-    <label for="cover" class="file-label ">
-        <img class="cov-img image is-128x128 mb-4" src="https://pflugerville-vortexsportscenter.com/wp-content/uploads/2017/04/default-image-800x600.jpg" id="coimg">
-        <input id="cover" class="file-input" type="file" name="cover">
-            <span class="file-cta">
-                <span class="file-icon">
-                    <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">
-                    Choose a file…
-                </span>
-            </span>
-    </label>
+<div class="field">
+
+        <div class="file is-small">
+        <label class="file-label">
+            <img class="cov-img image is-128x128 mb-4" src="https://pflugerville-vortexsportscenter.com/wp-content/uploads/2017/04/default-image-800x600.jpg" id="coimg">
+            <input id="cover" class="file-input" type="file" name="cover">
+        </label>
+    </div>
+    
+    <!-- FILE UPLOAD BUTTON -->
+    <span class="file-cta">
+        <span class="file-icon">
+            <i class="fas fa-upload"></i>
+        </span>
+        
+        <span class="file-label">
+            Choose a file...
+        </span>
+    </span>
 </div>
+
 
 
 <!-- BIO SECTION -->
 <!-- //////////////////////////////////////////////////////////////////////// -->                    
-<div class="field">
+<div class="field" style="width: 300px;">
     <label class="label has-text-white mt-4">Bio</label>
     <div class="control">
         <textarea id="bio" name="bio" class="textarea is-primary" placeholder="enter bio here..."></textarea>
