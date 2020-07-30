@@ -3,11 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+
     <title>Greetings</title>
 </head>
 <body>
+<!-- navbar -------------------------->
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="" class="navbar-item" style="font-weight: bold;" href="https://bulma.io">
+                <img
+                src="Icon_fourYou.png"
+            />
+            <img
+                src="fourYOU.png"
+            />
+        </a>
+            </a>
+            <span class="navbar-burger burger" data-target="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </div>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+        <div class="navbar-end">
+            <a href="#" class="navbar-item is-active">Home</a>
+            <a href="#" class="navbar-item">About</a>
+            <a href="#" class="navbar-item">Blog</a>
+            <a href="#" class="navbar-item">Read Me</a>
+        </div>
+    </div> 
+</nav> 
+<!-- HERO SECTION -->
+<!-- //////////////////////////////////////////////////////////////////////// -->		
+<section class="hero is-primary">
+<div class="hero-body">
+<div class="container">
+    <!-- <h1 class="title">
+        Login 
+    </h1> -->
+    <h2 class="title">
+        Welcome to FourYOU! 
+    </h2>
+    
+</div>
+</div>
+<!-- greetings section  -->
+
     <h1>Greetings <%= name %></h1>
-<form action="/logout?_method=DELETE" method="POST">
+<form class="box" action="/logout?_method=DELETE" method="POST">
 <button type="submit">Log Out</button></form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/js/hamburger.js" type="module"></script>
+
 </body>
 </html>
