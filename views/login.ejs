@@ -21,21 +21,17 @@
 			<div class="container">
 				<div class="navbar-brand">
 					<a href="" class="navbar-item" style="font-weight: bold;" href="https://bulma.io">
-						<img
-						src="/img/Icon_fourYou.png"
-					/>
-					<img
-						src="/img/fourYOU.png"
-					/>
+						<img src="/img/Icon_fourYou.png">
+					<img src="/img/fourYOU.png">
 				</a>
                     </a>
 					<!-- <span class="navbar-burger burger" data-target="navMenu">
 						<span></span>
 						<span></span>
 						<span></span>
-					</span>
+					</span> -->
 				</div>
-			</div> -->
+			</div>
 			<div id="navMenu" class="navbar-menu">
 				<div class="navbar-end">
 					<a href="#" class="navbar-item is-active">Home</a>
@@ -43,6 +39,7 @@
 					<a href="#" class="navbar-item">Blog</a>
 					<a href="#" class="navbar-item">Read Me</a>
 				</div>
+
 			</div> 
 		</nav> 
 		<!-- HERO SECTION -->
@@ -61,11 +58,21 @@
 	</div>
 
 		<!-- login section -->
-		<section class="hero is-light">
+		<!-- <section class="hero is-light"> -->
+	        <section class="hero has-background-black is-fullheight-with-navbar">
+		
 			<div class="hero-body">
 				<div class="container">
 					<div class="columns is-centered">
-						<div class="column is-4">
+						<!-- <div class="column is-4"> -->
+						<h1 class="title has-text-white">Login</h1>
+						<img style="width:50px"
+						src="Icon_fourYou.png"
+						/>
+						<img style="width:125px"
+						src="fourYOU.png"
+						/>
+						<!-- on this part -->
 							<h1 class="title has-text-black">Login Page</h1>
 							<% if (messages.error) { %> <%= messages.error %> <% } %>
 							<form class="box" action="/login" method="POST">
