@@ -6,7 +6,8 @@ const connect = require('./config');
 const db = pgp(connect);
 const formidable = require('formidable');
 const port = 3445;
-
+const crudroutes = require('./crud')
+crudroutes(app,db)
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -39,7 +40,7 @@ app.post("/image-uploaded", (req,res)=>{
         VALUES ('${fid}','cover', '${form.cover_upload}') RETURNING *
     `);
         let proInfo = await db.one(`
-        INSERT INTO profile (ownerid, bio, full_name, pro_id, cov_id)
+        INSERT INTO profile (owner_id, bio, full_name, pro_id, cov_id)
         VALUES ('${fid}','${form.bio}','${form.fullname}','${proImg.id}','${covImg.id}') RETURNING *
         `)
         res.send(proInfo)
