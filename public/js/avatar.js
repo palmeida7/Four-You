@@ -30,7 +30,7 @@ export let imguploadToServer = (evt) =>{
     const formData = new FormData();
     formData.append('pro_upload', profile);
     formData.append('cover_upload',cover);
-    // formData.append('full_name',document.getElementById('fullname').value);
+    formData.append('full_name',document.getElementById('fullname').value);
     formData.append('bio',document.getElementById('bio').value);
     console.log(formData);
     fetch('/image-uploaded', {

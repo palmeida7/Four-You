@@ -38,11 +38,11 @@ app.post("/image-uploaded", (req,res)=>{
         INSERT INTO images (owner_id, img_type, img_url) 
         VALUES ('${fid}','cover', '${form.cover_upload}') RETURNING *
     `);
-        let bio = await db.one(`
-        INSERT INTO profile (bio, fullname, pro_id, cov_id)
-        VALUES ('${form.bio}','${form.fullname}','${proImg.id}','${covImg.id}') RETURNING *
+        let proInfo = await db.one(`
+        INSERT INTO profile (ownerid, bio, full_name, pro_id, cov_id)
+        VALUES ('${fid}','${form.bio}','${form.fullname}','${proImg.id}','${covImg.id}') RETURNING *
         `)
-        res.send(bio)
+        res.send(proInfo)
     })
     
 });
