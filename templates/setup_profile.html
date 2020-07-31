@@ -83,48 +83,52 @@
                 <div class="container">
                     <h1 class="title has-text-white">Create / Edit Profile</h1>
 
-                    <div class="field" style="width: 300px">
-                        <label class="label has-text-white">Full Name</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input id="fullname" name="fullname" class="input" type="text" placeholder="full name">
-                            <span class="icon is-small is-left">
-                                <i class="fa fa-user"></i>
-                            </span>
+                        <div class="field" style="width: 300px">
+                            <label class="label has-text-white">Full Name</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input id="fullname" name="fullname" class="input" type="text" placeholder="full name">
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
 
 <!-- PROFILE IMAGE SECTION  -->
 <!-- //////////////////////////////////////////////////////////////////////// -->   
                     <div class="field">
-                        <label class="label has-text-white mt-4">Profile Image</label>
+                        <label class="label has-text-white mt-6">Profile Image</label>
                     </div>
 
                     <!-- FILE UPLOAD BUTTON -->
-                    <div class="file is-small">
-                        <label for="avatar" class="file-label">
-                            <span class="file-cta mr-6">
-                                <span class="file-icon">
-                                    <i class="fas fa-upload"></i>
+                    <section>
+                        <div class="file is-small">
+                            <label for="avatar" class="file-label">
+                                <span class="file-cta mr-6">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        Choose a file...
+                                    </span>
                                 </span>
-                                <span class="file-label">
-                                    Choose a file...
-                                </span>
-                            </span>
-                            <img class="ava-img image is-128x128 mb-4" src="http://www.ukm.my/portal/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" id="poimg">
-                            <input id="avatar" class="file-input" type="file" name="avatar"> 
-                        </label>
-                    </div>
+                                <img class="ava-img image is-128x128 mb-4" src="http://www.ukm.my/portal/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" id="poimg">
+                                <input id="avatar" class="file-input" type="file" name="avatar"> 
+                            </label>
+                        </div>
+                    </section>
 
 
 
 <!-- COVER IMAGE SECTION  -->
 <!-- //////////////////////////////////////////////////////////////////////// -->   
+<section>
 <div class="field">
     <label class="label has-text-white mt-4">Cover Image</label>
 </div>
 
-                            <!-- FILE UPLOAD BUTTON -->
+                            <!-- FILE UPLOAD BUTTON START-->
+                        <section>
                             <div class="field">
                                 <label class="file-label">
                                     <div class="file is-small">
@@ -140,25 +144,28 @@
                                         <input id="cover" class="file-input" type="file" name="cover">
                                     </label>
                                 </div>
-    
-    <!-- FILE UPLOAD BUTTON -->
-</div>
+                            </div>
+                        </section>
+                    </section>
+                            <!-- FILE UPLOAD BUTTON END-->
 
 
 
 <!-- BIO SECTION -->
 <!-- //////////////////////////////////////////////////////////////////////// -->                    
-<div class="field" style="width: 300px;">
-    <label class="label has-text-white mt-4">Bio</label>
-    <div class="control">
-        <textarea id="bio" name="bio" class="textarea is-primary" placeholder="enter bio here..."></textarea>
+<section>
+    <div class="field" style="width: 300px;">
+        <label class="label has-text-white mt-4">Bio</label>
+        <div class="control">
+            <textarea id="bio" name="bio" class="textarea is-primary" placeholder="enter bio here..."></textarea>
+        </div>
     </div>
-</div>
-
+</section>
 
 
 <!-- SUBMIT BUTTON -->
 <!-- //////////////////////////////////////////////////////////////////////// -->
+<<<<<<< HEAD:templates/setup.html
                     <section>
                         <button id="submit" class="button is-primary mt-4">S U B M I T</button>
                     </section>
@@ -167,6 +174,18 @@
         </section>
     </body>
     <script src="/js/avatar.js" type="module"></script>
+=======
+<section>
+    <button id="submit" class="button is-link ml-6 mt-6">Submit</button>
+    <button id="submit" class="button is-light ml-4 mt-6">Cancel</button>
+</section>
+</div>
+</div>
+</section>
+<script src="/js/main.js" type="module"></script>
+</body>
+
+>>>>>>> origin/master:public/setup_profile.html
     <!-- CREATE / EDIT PROFILE END -->
 <!-- //////////////////////////////////////////////////////////////////////// -->    
 </html> 
