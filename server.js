@@ -58,6 +58,7 @@ if (process.env.NODE_ENV !== 'production') {
     res.render('register.ejs')
   })
   
+  // app.post('/register', checkNotAuthenticated, userRoute.createUser)
   app.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
       const hashedPassword = await bcrypt.hash(req.body.password, 10)
