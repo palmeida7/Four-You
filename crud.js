@@ -47,7 +47,7 @@ app.delete("/blog/:id", async (req, res) => {
       DELETE FROM blogs
       WHERE id = '${req.params.id}';
     `);
-      res.redirect('blogs')
+      res.redirect('/blog')
     } catch (error) {
       console.log(err.message);
     }

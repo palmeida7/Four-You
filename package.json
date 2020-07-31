@@ -22,6 +22,7 @@
   "homepage": "https://github.com/mikecadima/Full-Stack-Project#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
     "bulma": "^0.9.0",
     "ejs": "^3.1.3",
     "express": "^4.17.1",
