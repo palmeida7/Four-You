@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(express.static("public"));
 
 
-  app.set('view-engine', 'ejs')
+  app.set('view engine', 'ejs')
   app.use(express.urlencoded({ extended: false }))
   app.use(flash())
   app.use(session({
@@ -95,5 +95,24 @@ if (process.env.NODE_ENV !== 'production') {
     }
     next()
   }
+  //page routes----------------
+  app.get('/index', function(req, res) {
+    res.render('index', { });
+  });
+  app.get('/message', function(req, res) {
+    res.render('message', { });
+  });
+  app.get('/newMessage', function(req, res) {
+    res.render('newMessage', { });
+  });
+  app.get('/blog', function(req, res) {
+    res.render('blog', { });
+  });
+  app.get('/newPost', function(req, res) {
+    res.render('newPost', { });
+  });
+  app.get('/about', function(req, res) {
+    res.render('about', { });
+  });
   
   app.listen(3000)
