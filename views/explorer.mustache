@@ -1,55 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <head>
+   {{> header}}
+    <title>Login</title>
+  </head>
+  <body>
+  
+    {{> menu}}
 
-    <title>Greetings</title>
-</head>
-<body>
-<!-- navbar -------------------------->
-<nav class="navbar is-black" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <div class="navbar-brand">
-            <a href="" class="navbar-item" style="font-weight: bold;" href="https://bulma.io">
-                <img style="width:50px"
-						src="/img/Icon_fourYou.png"
-						/>
-						<img style="width:125px"
-						src="/img/fourYOU.png"
-						/>
-        </a>
-            </a>
-            <span class="navbar-burger burger " data-target="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </span>
-        </div>
-    </div>
-    <!-- work on tags ------------------------>
-    <div id="navMenu" class="navbar-menu">
-        <div class="navbar-end">
-            <a href="/" class="navbar-item is-active">Home</a>
-            <a href="/message" class="navbar-item">Messages</a>
-            <a href="/newMessage" class="navbar-item">New Message</a>
-            <a href="/blog" class="navbar-item">Blog</a>
-            <a href="/newPost" class="navbar-item">New Post</a>
-            <a href="/about" class="navbar-item">About</a>
-            <form class="" action="/logout?_method=DELETE" method="POST">
-            <button class="button is-primary " type="submit">Log Out</button></form>
-        </div>
-    </div> 
-</nav> 
+    {{username}}
+   <h1>Explorer</h1>
 
 <!-- HERO SECTION -->
 <!-- //////////////////////////////////////////////////////////////////////// -->		
 <section class="hero is-primary">
     <div class="hero-body">
             <h1 class="title">
-                Blog
+                Explorer
             </h1>
         </div>
     </div>
@@ -268,8 +235,6 @@
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 
 
-
-<script src="/js/hamburger.js" type="module"></script>
-
-</body>
+{{> footer}}
+  </body>
 </html>
