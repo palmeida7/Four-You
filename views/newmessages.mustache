@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+   {{> header}}
+    <title>Login</title>
+  </head>
+  <body>
+  
+    {{> menu}}
+
+    {{username}}
+   <h1>New Messages</h1>
+
+<!-- HERO SECTION -->
+<!-- //////////////////////////////////////////////////////////////////////// -->		
+<section class="hero is-primary">
+    <div class="hero-body">
+            <h1 class="title">
+                New Message
+            </h1>
+        </div>
+    </div>
+</section>
+
+
+<!-- FORM START-->
+<!-- ////////////////////////////////////////////////////////////////////// -->
+
+<section class="field mt-6 mr-6 ml-6" >
+<div class="field">
+<label class="label">Message</label>
+    <div class="control">
+        <input class="input" style="width: 500px;" type="text" placeholder="enter message...">
+    </div>
+</div>
+
+<!-- SUBMIT & CANCEL BUTTON -->
+<!-- ////////////////////////////////////////////////////////////////////// -->
+<div class="field is-grouped mt-6">
+<div class="control">
+    <button class="button is-link ">Submit</button>
+</div>
+<div class="control">
+    <button class="button is-link is-light">Cancel</button>
+</div>
+</div>
+</section>
+
+{{> footer}}
+  </body>
+</html>
