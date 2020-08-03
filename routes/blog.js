@@ -22,14 +22,10 @@ const updateRoute = (app,db)=>{
             
             form.bio = form.bio || "a bio"
             form.full_name = form.full_name || "a name"
-            let proImg = await db.one(`
+            let blogImg = await db.one(`
             INSERT INTO images (img_url) 
-            VALUES ('${form.pro_upload}') RETURNING *
-        `);
-            let covImg = await db.one(`
-            INSERT INTO images (img_url) 
-            VALUES ('${form.cover_upload}') RETURNING *
-        `);
+            VALUES ('${form.blog_upload}') RETURNING *
+            `);
             let bio = await db.one(`
             UPDATE users SET bio = '${form.bio}', full_name = '${form.full_name}', pro_id = '${proImg.id}', cov_id = '${covImg.id}' 
             WHERE id = '${fid}'

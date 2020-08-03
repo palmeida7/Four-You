@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<!-- <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Four YOU!</title>
 		<link
@@ -10,68 +10,14 @@
         />
         <link rel="shortcut icon" href="/favicon-fy.ico" type="image/x-icon">
         <link rel="icon" href="/favicon-fy.ico" type="image/x-icon">
-		<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	</head>
+		<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+        {{> header}}
+        <title>Set up Profile</title>
+
+    </head>
 	<body>
 
-<!-- NAVBAR SECTION START -->
-<!-- //////////////////////////////////////////////////////////////////////// -->
-		<nav class="navbar is-black" role="navigation" aria-label="main navigation">
-			<div class="navbar-brand">
-				<a class="navbar-item" href="https://bulma.io">
-					<img src="./../img/Icon_fourYou.png">
-					<img src="./../img/fourYOU.png"/>
-                </a>
-                
-                    <a class="navbar-item">
-                        Home
-                    </a>
-            
-                    <a class="navbar-item">
-                        Profile
-                    </a>
-                    
-                    <a class="navbar-item">
-                        Read Me
-                    </a>
-
-<!-- NAVBAR SUB-MENU FUNCTION -->
-<!-- //////////////////////////////////////////////////////////////////////// -->
-				<a
-					role="button"
-					class="navbar-burger burger"
-					aria-label="menu"
-					aria-expanded="false"
-					data-target="navbarBasicExample"
-				>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-				</a>
-			</div>
-
-
-<!-- NAVBAR REGISTER BUTTONS -->
-<!-- //////////////////////////////////////////////////////////////////////// -->
-
-
-				<div class="navbar-end">
-					<div class="navbar-item">
-						<div class="buttons">
-							<!-- <a class="button is-black">
-								L O G O U T
-							</a> -->
-							<!-- <a class="button is-black"> 
-								LOGIN
-							</a> -->
-						</div>
-					</div>
-				</div>
-			</div>
-        </nav>
-
-<!-- NAVBAR SECTION END -->
-<!-- //////////////////////////////////////////////////////////////////////// -->
+{{> menu}}
 
 
 
@@ -92,6 +38,8 @@
                                 </span>
                             </div>
                         </div>
+
+            
 
 
 <!-- PROFILE IMAGE SECTION  -->
@@ -173,6 +121,8 @@
 </div>
 </section>
 <script src="/js/avatar.js" type="module"></script>
+{{> footer}}
+
 </body>
     <!-- CREATE / EDIT PROFILE END -->
 <!-- //////////////////////////////////////////////////////////////////////// -->    
