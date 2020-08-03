@@ -162,35 +162,43 @@ app.get('/logout',(req,res,next)=>{
 })
 
   //page routes----------------
-  app.get('/', function(req, res) {
+app.get('/', function(req, res) {
     res.render('articles', { });
-  });
-  app.get('/messages', function(req, res) {
+});
+app.get('/messages', function(req, res) {
     res.render('messages', { });
-  });
-  app.get('/newmessages', function(req, res) {
+});
+app.get('/newmessages', function(req, res) {
     res.render('newmessages', { });
-  });
-  app.get('/explorer', function(req, res) {
+});
+app.get('/explorer', function(req, res) {
     res.render('explorer', { });
-  });
-  app.get('/newPost', function(req, res) {
+});
+app.get('/newPost', function(req, res) {
     res.render('newPost', { });
-  });
-  app.get('/about', function(req, res) {
+});
+app.get('/about', function(req, res) {
     res.render('about', { });
-  });
-  app.get('/register', function(req, res) {
+});
+app.get('/register', function(req, res) {
     res.render('register', { });
-  });
+});
 
 
-
-
-
+// html render
+app.get('/profile',(req,res)=>{
+    res.render('profile');
+});
 app.get('/setup',(req,res)=>{
     res.render('setup');
 });
+
+// display content
+app.post('/profile-info', function(req,res))
+
+
+
+
 
 app.listen(port, ()=>{
     console.log(`listening on http://localhost:${port}`)
