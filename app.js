@@ -22,7 +22,7 @@ const port = 3445;
 const updateRoute = require('./routes/setup');
 const crudroutes = require('./crud');
 //mike addition
-const CONNECTION_STRING = "postgres://localhost:5432/fouryou"
+const CONNECTION_STRING = "postgres://localhost:5432/foryou"
 const SALT_ROUNDS = 10 
 const VIEWS_PATH = path.join(__dirname,'/views')
 
@@ -56,7 +56,7 @@ app.get('/users/add-article',(req,res)=>{
     res.render('add-article')
 })
 
-//after login route to here
+//after login route to here//////////////////////////////////////
 app.get('/users/articles',(req,res)=>{
     res.render('articles',{username: req.session.user.username})
 })
@@ -67,19 +67,20 @@ app.post('/login',(req,res)=>{
     let username = req.body.username
     let password = req.body.password
 
-    db.oneOrNone('SELECT userid,username,password FROM users WHERE username = $1',[username])
+    db.oneOrNone('SELECT id,username,password FROM users WHERE username = $1',[username])
     .then((user)=>{
         if(user){
             bcrypt.compare(password,user.password,function(error,result){
                 if(result){
-                    //username and userid session
+                    //username and id session
                     if(req.session){
-                        req.session.user = {userId: user.userId, username: user.username}
+                        req.session.user = {userId: user.id, username: user.username}
                     }
 
                     //send to next page
                     // res.send("success!")
                     res.redirect('users/articles')
+
                 }else{
                     res.render('login',{message:"Invalid username or password!"})
 
@@ -101,7 +102,7 @@ app.post('/register',(req,res)=>{
     let username = req.body.username
     let password = req.body.password
 
-    db.oneOrNone('SELECT userid FROM users WHERE username = $1',[username])
+    db.oneOrNone('SELECT id FROM users WHERE username = $1',[username])
     .then((user)=>{
         if(user){
             res.render('register',{message:"Username already exists!"})
@@ -110,7 +111,9 @@ app.post('/register',(req,res)=>{
                 if(error == null){
                     db.none('INSERT INTO users(username,password) VALUES ($1,$2)',[username,hash]) 
                     .then(()=>{
-                        res.send('success')
+                        // res.redirect('/setup_profile')
+                        res.redirect('/login')
+
                     })
                 }
             })
@@ -133,22 +136,12 @@ app.post('/register',(req,res)=>{
 })
 
 //used to display page
-app.get('/register',(req,res)=>{
-    res.render('register')
-})
+// app.get('/register',(req,res)=>{
+//     res.render('register')
+// })
 
 //logout
-// app.delete('/logout', (req, res) => {
-//     req.logOut()
-//     res.redirect('/login')
-//   })
 
-//   app.get('/logout', function(req,res){
-// req.logout();
-// req.session.destroy();
-// res.redirect('/')
-
-//   });
 app.get('/logout',(req,res,next)=>{
     if(req.session){
         req.session.destroy((error)=>{
@@ -183,7 +176,9 @@ app.get('/logout',(req,res,next)=>{
   app.get('/register', function(req, res) {
     res.render('register', { });
   });
-
+  app.get('/setup_profile', function(req, res) {
+    res.render('setup_profile', { });
+  });
 
 
 
