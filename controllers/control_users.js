@@ -1,4 +1,4 @@
-const db = require('./../../config');
+const db = require('./config');
 const img = require('./control_images');
 const bcrypt = require('bcrypt');
 

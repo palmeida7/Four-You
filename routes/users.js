@@ -1,4 +1,4 @@
-const controlUser = require('./../controllers/control_users');
+const controlUser = require('./control_users');
 
 let user = {};
 
