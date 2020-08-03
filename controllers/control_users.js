@@ -1,5 +1,5 @@
 const db = require('./config');
-const img = require('./control_images');
+const img = require('./setup');
 const bcrypt = require('bcrypt');
 
 let user = {};
