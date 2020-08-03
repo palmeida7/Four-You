@@ -139,7 +139,7 @@ app.post('/setup_profile',(req,res)=>{
     let coverImg = req.body.cov_id
     let email = req.body.email
 
-    db.oneOrNone('SELECT id FROM users WHERE full_name,bio,pro_id,cov_id = $1,$2,$3,$4',[fullname,bio,proImg,coverImg])
+    db.any('SELECT id FROM users WHERE full_name,bio,pro_id,cov_id = $1,$2,$3,$4',[fullname,bio,proImg,coverImg])
 })
 
 //logout
@@ -157,37 +157,48 @@ app.get('/logout',(req,res,next)=>{
 })
 
   //page routes----------------
-  app.get('/', function(req, res) {
-    res.render('register', { });
-  });
-  app.get('/messages', function(req, res) {
+app.get('/', function(req, res) {
+    res.render('login', { });
+});
+app.get('/messages', function(req, res) {
     res.render('messages', { });
-  });
-  app.get('/newmessages', function(req, res) {
+});
+app.get('/newmessages', function(req, res) {
     res.render('newmessages', { });
-  });
-  app.get('/explorer', function(req, res) {
+});
+app.get('/explorer', function(req, res) {
     res.render('explorer', { });
-  });
-  app.get('/newPost', function(req, res) {
+});
+app.get('/newPost', function(req, res) {
     res.render('newPost', { });
-  });
-  app.get('/about', function(req, res) {
+});
+app.get('/about', function(req, res) {
     res.render('about', { });
-  });
-  app.get('/register', function(req, res) {
+});
+app.get('/register', function(req, res) {
     res.render('register', { });
-  });
-  app.get('/setup_profile', function(req, res) {
+});
+app.get('/setup_profile', function(req, res) {
     res.render('setup_profile', { });
-  });
+});
 
 
 
 
+// html render
+app.get('/profile',(req,res)=>{
+    res.render('profile');
+});
 app.get('/setup',(req,res)=>{
     res.render('setup');
 });
+
+// display content
+app.post('/profile-info', function(req,res))
+
+
+
+
 
 app.listen(port, ()=>{
     console.log(`listening on http://localhost:${port}`)
