@@ -182,6 +182,10 @@ app.get('/setup_profile', function(req, res) {
     res.render('setup_profile', { });
 });
 
+  app.get('/profile', function(req, res) {
+    res.render('profile', { });
+  });
+
 
 
 
