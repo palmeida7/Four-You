@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt')
 const session = require('express-session')
 const path = require('path')
-const methodOverride = require('method-override')
+// const methodOverride = require('method-override')
 
 
 const pgp = require('pg-promise')();
@@ -15,12 +15,11 @@ const pgp = require('pg-promise')();
 //old db, conflicting with new version
 // const db = pgp(connect);
 
-const formidable = require('formidable');
+// const formidable = require('formidable');
 const es6R = require('express-es6-template-engine');
 const port = 3445;
 
-const updateRoute = require('./routes/setup');
-const crudroutes = require('./crud');
+
 //mike addition
 const CONNECTION_STRING = "postgres://localhost:5432/foryou"
 const SALT_ROUNDS = 10 
@@ -28,8 +27,7 @@ const VIEWS_PATH = path.join(__dirname,'/views')
 
 const db = pgp(CONNECTION_STRING)
 
-updateRoute(app,db);
-crudroutes(app,db);
+
 
 app.use(express.json());
 app.engine('html', es6R)
@@ -50,15 +48,17 @@ app.use(session({
     saveUninitialized:false
 }))
 app.use(bodyParser.urlencoded({extended:false}))
-
-
+const updateRoute = require('./routes/setup');
+const crudroutes = require('./crud');
+updateRoute(app,db);
+crudroutes(app,db);
 app.get('/users/add-article',(req,res)=>{
     res.render('add-article')
 })
 
 //after login route to here//////////////////////////////////////
-app.get('/users/articles',(req,res)=>{
-    res.render('articles',{username: req.session.user.username})
+app.get('/users/profile',(req,res)=>{
+    res.render('profile',{username: req.session.user.username})
 })
 
 
@@ -79,7 +79,7 @@ app.post('/login',(req,res)=>{
 
                     //send to next page
                     // res.send("success!")
-                    res.redirect('users/articles')
+                    res.redirect('users/profile')
 
                 }else{
                     res.render('login',{message:"Invalid username or password!"})
@@ -91,9 +91,7 @@ app.post('/login',(req,res)=>{
         }
     })
 })
-app.post('/login',(req,res)=>{
 
-})
 app.get('/login',(req,res) =>{
     res.render('login')
 })
@@ -134,11 +132,15 @@ app.post('/register',(req,res)=>{
     // res.send("Registered!")
 
 })
+app.post('/setup_profile',(req,res)=>{
+    let fullname = req.body.full_name
+    let bio = req.body.bio
+    let proImg = req.body.pro_id
+    let coverImg = req.body.cov_id
+    let email = req.body.email
 
-//used to display page
-// app.get('/register',(req,res)=>{
-//     res.render('register')
-// })
+    db.oneOrNone('SELECT id FROM users WHERE full_name,bio,pro_id,cov_id = $1,$2,$3,$4',[fullname,bio,proImg,coverImg])
+})
 
 //logout
 
@@ -156,7 +158,7 @@ app.get('/logout',(req,res,next)=>{
 
   //page routes----------------
   app.get('/', function(req, res) {
-    res.render('articles', { });
+    res.render('register', { });
   });
   app.get('/messages', function(req, res) {
     res.render('messages', { });

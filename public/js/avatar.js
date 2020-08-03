@@ -30,7 +30,9 @@ const uploadToServer = (evt) =>{
         body:formData
     })
     .then(resp=>resp.json())
-    .then(data=>console.log(data))
+    .then(data=>{
+        window.location = '/users/profile'
+        console.log(data)})
     .catch(error=>console.log(error))
 }
 // document.getElementById("imgupload").addEventListener("input", ReadFile);

@@ -2,6 +2,7 @@ const formidable = require('formidable');
 const updateRoute = (app,db)=>{
     app.post("/update", (req,res)=>{
         let form = {};
+        console.log("**********", req.body,req.session)
         new formidable.IncomingForm().parse(req)
         .on('field', (name, field) => {
             form[name] = field;
@@ -14,7 +15,11 @@ const updateRoute = (app,db)=>{
         })
         .on('end', async ()=>{
             console.log(form);
-            let fid = 1 // req.user.id || 1
+            console.log(req.user)
+            console.log(req.session)
+
+            let fid = req.session.user.userId 
+            
             form.bio = form.bio || "a bio"
             form.full_name = form.full_name || "a name"
             let proImg = await db.one(`
@@ -26,9 +31,11 @@ const updateRoute = (app,db)=>{
             VALUES ('${form.cover_upload}') RETURNING *
         `);
             let bio = await db.one(`
-            INSERT INTO users (bio, full_name, pro_id, cov_id)
-            VALUES ('${form.bio}','${form.full_name}','${proImg.id}','${covImg.id}') RETURNING *
+            UPDATE users SET bio = '${form.bio}', full_name = '${form.full_name}', pro_id = '${proImg.id}', cov_id = '${covImg.id}' 
+            WHERE id = '${fid}'
+             RETURNING *
             `)
+            delete bio.password
             console.log(bio)
             res.send(bio)
         })
