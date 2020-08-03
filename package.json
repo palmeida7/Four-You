@@ -8,7 +8,8 @@
     "db:install": "createdb foryou && psql foryou < install.sql",
     "db:seed": "psql foryou < seed.sql",
     "db:reset": "dropdb foryou && npm run db:install",
-    "devStart": "nodemon app.js"
+    "devStart": "nodemon app.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
