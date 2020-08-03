@@ -1,5 +1,4 @@
 const formidable = require('formidable');
-
 const updateRoute = (app,db)=>{
     app.post("/update", (req,res)=>{
         let form = {};
