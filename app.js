@@ -143,12 +143,23 @@ app.get('/register',(req,res)=>{
 //     res.redirect('/login')
 //   })
 
-  app.get('/logout', function(req,res){
-req.logout();
-req.session.destroy();
-res.redirect('/')
+//   app.get('/logout', function(req,res){
+// req.logout();
+// req.session.destroy();
+// res.redirect('/')
 
-  });
+//   });
+app.get('/logout',(req,res,next)=>{
+    if(req.session){
+        req.session.destroy((error)=>{
+            if(error){
+                next(error)
+            } else {
+                res.redirect('/login')
+            }
+        })
+    }
+})
 
   //page routes----------------
   app.get('/', function(req, res) {
