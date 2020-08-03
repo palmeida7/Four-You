@@ -3,21 +3,22 @@
   <head>
    {{> header}}
     <title>Login</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
   
     {{> menu}}
 
     {{username}}
-   <h1>Welcome</h1>
-   <section class="hero is-primary">
+   {{! <h1>Welcome</h1> }}
+   <section class="hero is-primary is-bold">
     <div class="hero-body">
     <!-- <div class="container"> -->
         <!-- <h1 class="title">
             Login 
         </h1> -->
         <h2 class="title">
-            Welcome to FourYOU! 
+            User Profile
         </h2>
         <!-- weather section --------------------->
         <div class="weather" id="weather">
@@ -41,7 +42,7 @@
     <!-- greetings section  -->
     
         <!-- <h1>Greetings <%= name %></h1> -->
-    <form class="box" action="/logout?_method=DELETE" method="POST">
+    {{! <form class="box" action="/logout?_method=DELETE" method="POST"> }}
     <!-- <button class="button is-primary is-pulled-right" type="submit">Log Out</button></form> -->
                     </div>
                 </div>
@@ -80,7 +81,7 @@
                 <p class="subtitle is-6">@ogsnoopdogg</p>
             </div>
             <div class="buttons ml-4">
-                <button class="button is-light">edit</button>
+                <button class="button is-primary">edit</button>
             </div>
             </div>
         </div>
