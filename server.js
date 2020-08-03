@@ -9,16 +9,29 @@ if (process.env.NODE_ENV !== 'production') {
   const flash = require('express-flash')
   const session = require('express-session')
   const methodOverride = require('method-override')
-  
-  
-  
-  const users = []
+
+//db for users
+  // const pgp = require('pg-promise')()
+  // const CONNECTION_STRING = "postgres://localhost:5432/fouryou"
+//   const db = pgp(CONNECTION_STRING)
+  // app.use(bodyParser.urlencoded({extended:false}))
+// console.log(name)
+// console.log(password)
+// const users = CONNECTION_STRING
+
+
+const users = install.sql
+//original
+  // const users = []
+
+
   //burger menu route
   app.use(express.json());
   app.use(express.static("public"));
 
 
   app.set('view engine', 'ejs')
+
   app.use(express.urlencoded({ extended: false }))
   app.use(flash())
   app.use(session({
@@ -32,6 +45,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(methodOverride('_method'))
   
   const initializePassport = require('./passport-config')
+const bodyParser = require('body-parser')
   initializePassport(
     passport,
     email => users.find(user => user.email === email),
@@ -114,5 +128,5 @@ if (process.env.NODE_ENV !== 'production') {
   app.get('/about', function(req, res) {
     res.render('about', { });
   });
-  
+
   app.listen(3000)
