@@ -1,26 +1,15 @@
-<nav class="navbar is-black" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <div class="navbar-brand">
-            <a href="" class="navbar-item" style="font-weight: bold;" href="https://bulma.io">
-                <img style="width:50px"
-						src="/img/Icon_fourYou.png"
-						/>
-						<img style="width:125px"
-						src="/img/fourYOU.png"
-						/>
-        </a>
-            </a>
-            <span class="navbar-burger burger " data-target="navMenu">
+
+    <!-- work on tags ------------------------>
+    <span class="navbar-burger burger " data-target="navMenu">
                 <span></span>
                 <span></span>
                 <span></span>
             </span>
         </div>
     </div>
-    <!-- work on tags ------------------------>
     <div id="navMenu" class="navbar-menu">
         <div class="navbar-end">
-            <a href="/articles" class="navbar-item is-active">Home</a>
+            <a href="/" class="navbar-item is-active">Home</a>
             <a href="/messages" class="navbar-item">Messages</a>
             <a href="/newmessages" class="navbar-item">New Message</a>
             <a href="/explorer" class="navbar-item">Explorer</a>
@@ -29,8 +18,10 @@
 
             <a href="/users/add-article" class="navbar-item">Add Article</a>
 
-            <form class="" action="/logout?_method=DELETE" method="POST">
+
+            <form class="logout" action="/logout?_method=DELETE" method="POST">
             <button class="button is-primary " type="submit">Log Out</button></form>
+            
         </div>
     </div> 
 </nav> 

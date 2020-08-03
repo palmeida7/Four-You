@@ -138,13 +138,20 @@ app.get('/register',(req,res)=>{
 })
 
 //logout
-app.delete('/logout', (req, res) => {
-    req.logOut()
-    res.redirect('/login')
-  })
-  
+// app.delete('/logout', (req, res) => {
+//     req.logOut()
+//     res.redirect('/login')
+//   })
+
+  app.get('/logout', function(req,res){
+req.logout();
+req.session.destroy();
+res.redirect('/')
+
+  });
+
   //page routes----------------
-  app.get('/articles', function(req, res) {
+  app.get('/', function(req, res) {
     res.render('articles', { });
   });
   app.get('/messages', function(req, res) {
@@ -161,6 +168,9 @@ app.delete('/logout', (req, res) => {
   });
   app.get('/about', function(req, res) {
     res.render('about', { });
+  });
+  app.get('/register', function(req, res) {
+    res.render('register', { });
   });
 
 
