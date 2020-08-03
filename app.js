@@ -182,6 +182,10 @@ app.get('/logout',(req,res,next)=>{
     res.render('setup_profile', { });
   });
 
+  app.get('/profile', function(req, res) {
+    res.render('profile', { });
+  });
+
 
 
 
