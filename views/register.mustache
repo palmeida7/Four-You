@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <linkrel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+		/>    <title>Register</title>
+  </head>
+  <body>
+  
+    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <div class="navbar-brand">
+          <a href="" class="navbar-item" style="font-weight: bold;" href="https://bulma.io">
+            <img style="width:50px"
+                src="/img/Icon_fourYou.png"
+                />
+                <img style="width:125px"
+                src="/img/fourYOU.png"
+                />
+        </a>
+          </a>
+        </div>
+      </div> 
+    </nav>     
+    <!-- <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul> -->
+
+    <!-- register sections ------------>
+  	<section class="hero has-background-black is-fullheight-with-navbar">
+      <div class="hero-body">
+        <div class="container">
+
+          <h1 class="title has-text-white">Register</h1>
+          <img style="width:50px"
+          src="/img/Icon_fourYou.png"
+          />
+        <img style="width:125px"
+        src="/img/fourYOU.png"
+        />
+
+          <div class="feild">
+    <form action="/register" method="POST">
+
+      <!-- <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input type="text" name="name" class="form-control" 
+         placeholder="Enter Name">
+      </div> -->
+
+      <div class="form-group">
+        <label class="label has-text-white" for="exampleInputEmail1">User Name</label>
+        <input class="input" style="width: 450px;" type="text" name="username" class="form-control" 
+         placeholder="Enter User Name">
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input type="email" name="email" class="form-control" 
+         placeholder="Enter email">
+      </div> -->
+
+      <div class="form-group">
+        <label class="label has-text-white" for="exampleInputPassword1">Password</label>
+        <input  class="input" style="width: 450px;" type="password" name="password" class="form-control" 
+         placeholder="Password">
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="label has-text-white">Terms</label>
+            <label class="checkbox">
+              <input type="checkbox">
+                I agree to the terms and conditions</a>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+      {{#message}}
+<div class="alert alert-danger" role="alert">
+  {{message}}
+</div>
+{{/message}}
+
+    </form>
+  </div>
+
+      </div>
+  </div>
+</section> 
+{{> footer}}
+  </body>
+</html>

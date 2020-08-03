@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+   <!-- {{> header}} -->
+
+   <linkrel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+		/>
+
+    <title>Login</title>
+  </head>
+  <body>
+	  <!-- navbar ------------------------------>
+	<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<div class="navbar-brand">
+				<a href="" class="navbar-item" style="font-weight: bold;" href="https://bulma.io">
+					<img style="width:50px"
+							src="/img/Icon_fourYou.png"
+							/>
+							<img style="width:125px"
+							src="/img/fourYOU.png"
+							/>
+			</a>
+				</a>
+			</div>
+		</div> 
+	</nav> 
+	<!-- login section ------------------------------------>
+	<section class="hero has-background-black is-fullheight-with-navbar">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title has-text-white">Login</h1>
+				<img style="width:50px"
+				src="/img/Icon_fourYou.png"
+				/>
+			<img style="width:125px"
+			src="/img/fourYOU.png"
+			/>
+
+    <form action="/login" method="POST">
+
+      <!-- <div class="form-group"> -->
+		<div class="feild">
+
+		<label class="label has-text-white" for="exampleInputEmail1">User Name</label>
+		<div class="control has-icons-left has-icons-right">
+        <input class="input" style="width: 450px;" type="text" name="username" class="form-control" 
+		 placeholder="Enter User Name">
+		 </div>
+      </div>
+
+      <!-- <div class="form-group"> -->
+		<div class="feild">
+			<div class="control has-icons-left has-icons-right">
+
+        <label class="label has-text-white" for="exampleInputPassword1">Password</label>
+        <input class="input" style="width: 450px;" type="password" name="password" class="form-control" 
+         placeholder="Password">
+	  </div>
+		</div>
+
+      <!-- TERMS FIELD -->
+<!-- //////////////////////////////////////////////////////////////////////// -->
+<div class="field">
+	<div class="control">
+		<label class="label has-text-white">Terms</label>
+			<label class="checkbox">
+				<input type="checkbox">
+					I agree to the terms and conditions</a>
+
+	  <button type="submit" class="btn btn-primary">Submit</button>
+
+	  <button href="/register" type="submit" class="btn btn-primary" >Register</button>
+
+      {{#message}}
+<div class="alert alert-danger" role="alert">
+  {{message}}
+</div>
+{{/message}}
+
+    </form>
+  </div>
+
+  		</div>
+	</div>
+</section>
+
+{{> footer}}
+  </body>
+</html>
