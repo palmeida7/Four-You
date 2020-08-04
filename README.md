@@ -1,19 +1,25 @@
-# Getting started
+# fourYou
+###post image here
+## Overview: 
+fourYou is an interactive site that allows users to experience a personalized environment with their posts and thoughts. 
 
-Team leader clone then do :
+## The Team: team of four members operating remotely.
+### Eric Yim: https://github.com/tknyim
+**Primary team role:** Team Lead; Front-End markup and styling, Javascript Function writer
 
-`rm -rf Full-Stack-Starter/.git`
+**Contributions:** Designed and implemented profile page. Assisted with Style and Layout Design. Oversaw organization of all javascript files and implementations.  
 
-`mv Back_End_Project Whatever_name_you want`
+### Mike Cadima: https://github.com/mikecadima
+**Primary team role:** Front-End markup and styling, concepting and Javascript Function writer
 
-`cd The_Folder_name_you_chose`
+**Contributions:** Oversaw creation of encryted login page. Implemented "slideable" menu and created div block with data from Weather API and a time counter function. Oversaw handling of all Github merges and deployment of application to Amazon Web Services.
 
-`npm init \\put in your details`
+### PJ Almeida: https://github.com/palmeida7
+**Primary team role:** Front-End markup and styling, concepting and Javascript Function writer
 
-`npm install express`
+**Contributions:** Oversaw project coordination. Assisted in design layout and javascript functions. Created technical document.
 
-`npm install pg-promise`
+### Ivan Davis: https://github.com/techbyivan
+**Primary team role:** Lead UI/UX Designer; Front-End markup and styling, concepting and Javascript Function writer
 
-Create Repository in github without a readme and follow the instructions given on that page.
-
-Add The team as collaborators
+**Contributions:** Oversaw creative layout design of webpages. Implemented Light/Dark mode feature and calendar frame. Designed Events Page and ReadMe document.
