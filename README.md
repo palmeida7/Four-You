@@ -44,6 +44,7 @@ fourYou is an interactive site that allows users to experience a personalized en
 - Amazon Web Services
 - Trello
 - Slack
+- Mustache pages
 
 ### Express Dependencies:
 - Bcrypt
