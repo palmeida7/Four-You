@@ -18,12 +18,12 @@ const postRoute = (app,db)=>{
             console.log(req.session)
 
             let userId = req.session.user.userId
-            
+            let date = new Date().toDateString()
             form.title = form.title || "Title"
             
             let postInfo = await db.one(`
-            INSERT INTO blogs (title, user_id, blog_Img)
-            VALUES ('${form.title}','${userId}','${form.blog_upload.replace(/^.*[\\\/]/, '')}') 
+            INSERT INTO blogs (title, date_created, blog_img, user_id)
+            VALUES ('${form.title}','${date}','${form.blog_upload.replace(/^.*[\\\/]/, '')}','${userId}') 
             RETURNING *
             `)
             console.log(postInfo)

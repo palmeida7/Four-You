@@ -55,7 +55,7 @@
             
     <section>
         <figure class="image is-3by1">
-            <img id="coverimgsrc" src="/image/{{covimage}}">
+            <img id="coverimgsrc" src="/image/{{cov_url}}">
         </figure>
     </section>
     
@@ -72,11 +72,11 @@
             <div class="media">
             <div class="media-left">
                 <figure class="image is-48x48">
-                    <img id="profileimgsrc" class="is-rounded" src="/image/{{proimage}}">
+                    <img id="profileimgsrc" class="is-rounded" src="/image/{{pro_url}}">
                 </figure>
             </div>
             <div class="media-content">
-                <p class="title is-4">{{fullname}}</p>
+                <p class="title is-4">{{full_name}}</p>
                 <p class="subtitle is-6">@{{username}}</p>
                 <p class="subtitle is-6">{{bio}}</p>
 
@@ -132,14 +132,15 @@
     <!-- START OF CARD SECTION #1-->
     <!-- ////////////////////////////////////////////////////////////////////// -->
     <!-- CARD 1 -->
-        <div class="columns">
-            <div class="column is-one-third">
-                <div class="card mt-4 ml-5">
-                    <div class="card-content">
-                        <h2 class="title">{{title}}</h2>
-                        <h4 class="subtitle">@{{username}} & {{timestamp}}</h4>
-    
-                        <a href="https://placeholder.com"><img src="/image/{{blogimage}}"></a>
+        {{#posts}}
+            <div class="columns is-multiline">
+                <div class="column is-one-third">
+                    <div class="card mt-4 ml-5">
+                        <div class="card-content">
+                            <h2 class="title">{{title}}</h2>
+                            <h4 class="subtitle">@{{username}} & {{date_created}}</h4>
+        
+                        <a href="https://placeholder.com"><img src="/image/{{blog_img}}"></a>
                     </div>
                     <footer class="card-footer">
                         <div class="card-footer-item">
@@ -150,10 +151,10 @@
                     </footer>
                 </div>
             </div>
-        
+        {{/posts}}
     <!-- CARD 2 -->
     <!-- ////////////////////////////////////////////////////////////////////// -->
-            <div class="column is-one-third">
+            {{! <div class="column is-one-third">
                 <div class="card mt-4 ml-5">
                     <div class="card-content">
                         <h2 class="title">Image Title#2</h2>
@@ -181,7 +182,7 @@
         <h4 class="subtitle">User-name & Timestamp</h4>
     
         <a href="https://placeholder.com"><img src="https://via.placeholder.com/500"></a>
-    </div>
+    </div> }}
     <footer class="card-footer">
         <div class="card-footer-item">
             <a href="#" class="button is-danger">
