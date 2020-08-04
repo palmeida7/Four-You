@@ -8,10 +8,12 @@ const updateRoute = (app,db)=>{
             form[name] = field;
         })
         .on('fileBegin', (name, file) => {
-            file.path = __dirname.replace('/routes',"") + '/public/images/' + new Date().getTime() + file.name
+            file.path = __dirname.replace('/routes',"") + '/public/images/' + new Date().getTime() + file.name;
+            // console.log(file);
         })
         .on('file', (name, file) => {
             form[name] = file.path.replace(__dirname+'/public',"");
+            // console.log(file);
         })
         .on('end', async ()=>{
             console.log(form);
@@ -19,25 +21,16 @@ const updateRoute = (app,db)=>{
             console.log(req.session)
 
             let fid = req.session.user.userId 
-            
             form.bio = form.bio || "a bio"
             form.full_name = form.full_name || "a name"
-            let proImg = await db.one(`
-            INSERT INTO images (img_url) 
-            VALUES ('${form.pro_upload}') RETURNING *
-        `);
-            let covImg = await db.one(`
-            INSERT INTO images (img_url) 
-            VALUES ('${form.cover_upload}') RETURNING *
-        `);
-            let bio = await db.one(`
-            UPDATE users SET bio = '${form.bio}', full_name = '${form.full_name}', pro_id = '${proImg.id}', cov_id = '${covImg.id}' 
+            let userInfo = await db.one(`
+            UPDATE users SET bio = '${form.bio}', full_name = '${form.full_name}', pro_url = '${form.pro_upload.replace(/^.*[\\\/]/, '')}', cov_url = '${form.cover_upload.replace(/^.*[\\\/]/, '')}' 
             WHERE id = '${fid}'
              RETURNING *
             `)
-            delete bio.password
-            console.log(bio)
-            res.send(bio)
+            delete userInfo.password
+            console.log(userInfo)
+            res.send(userInfo)
         })
         
     });

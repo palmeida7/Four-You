@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
-  <head>
-   {{> header}}
-    <title>Profile</title>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head>
-  <body>
-  
+    <head>
+        {{> header}}
+        <title>Profile</title>
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    </head>
+    <body>
+
     {{> menu}}
 
     
-   <section class="hero is-primary is-bold">
+    <section class="hero is-primary is-bold">
     <div class="hero-body">
     <!-- <div class="container"> -->
         <!-- <h1 class="title">
@@ -55,7 +55,7 @@
             
     <section>
         <figure class="image is-3by1">
-            <img src="https://bulma.io/images/placeholders/720x240.png">
+            <img id="coverimgsrc" src="/image/{{covimage}}">
         </figure>
     </section>
     
@@ -72,13 +72,13 @@
             <div class="media">
             <div class="media-left">
                 <figure class="image is-48x48">
-                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                    <img id="profileimgsrc" class="is-rounded" src="/image/{{proimage}}">
                 </figure>
             </div>
             <div class="media-content">
                 <p class="title is-4">{{fullname}}</p>
                 <p class="subtitle is-6">@{{username}}</p>
-                <p class="subtitle is-6">{{email}}</p>
+                <p class="subtitle is-6">{{bio}}</p>
 
             </div>
             <div class="buttons ml-4">
@@ -137,7 +137,7 @@
                 <div class="card mt-4 ml-5">
                     <div class="card-content">
                         <h2 class="title">Image Title#1</h2>
-                        <h4 class="subtitle">User-name & Timestamp</h4>
+                        <h4 class="subtitle">@{{username}} & {{timestamp}}</h4>
     
                         <a href="https://placeholder.com"><img src="https://via.placeholder.com/500"></a>
                     </div>
@@ -193,11 +193,11 @@
     </footer>
     </div>
     </div>
-    
+    <script></script>
     <!-- END OF CARD ROW -->
     <!-- //////////////////////////////////////////////////////////////////////////// -->
     
 
 {{> footer}}
-  </body>
+    </body>
 </html>
