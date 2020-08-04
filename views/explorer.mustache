@@ -69,14 +69,15 @@
 <!-- START OF CARD SECTION #1-->
 <!-- ////////////////////////////////////////////////////////////////////// -->
 <!-- CARD 1 -->
+{{#posts}}
 <div class="columns is-multiline">
     <div class="column is-half">
         <div class="card mt-4 ml-5">
             <div class="card-content">
-    <h2 class="title">Pineapple Juice!</h2>
-    <h4 class="subtitle">@caDaily & July 29th, 2020</h4>
+    <h2 class="title">{{title}}</h2>
+    <h4 class="subtitle">@{{username}} & {{date_created}}</h4>
 
-    <a href="https://placeholder.com"><img src="https://images.unsplash.com/photo-1515876879333-013aa5ea1472?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"></a>
+    <a href="https://placeholder.com"><img src="/image/{{blog_img}}"></a>
 </div>
 <footer class="card-footer">
     <div class="card-footer-item">
@@ -99,7 +100,7 @@
 </footer>
 </div>
 </div>
-    
+{{/posts}}
 <!-- CARD 2 -->
 <!-- ////////////////////////////////////////////////////////////////////// -->
 <div class="column is-half">
