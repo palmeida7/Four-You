@@ -48,11 +48,13 @@ app.use(session({
     saveUninitialized:false
 }))
 app.use(bodyParser.urlencoded({extended:false}))
+const imageRoute = require('./routes/image');
 const updateRoute = require('./routes/setup');
 const postRoute = require('./routes/blog');
 const crudroutes = require('./crud');
 updateRoute(app,db);
 postRoute(app,db);
+imageRoute(app,db);
 crudroutes(app,db);
 app.get('/users/add-article',(req,res)=>{
     res.render('add-article')
@@ -60,7 +62,22 @@ app.get('/users/add-article',(req,res)=>{
 
 //after login route to here//////////////////////////////////////
 app.get('/users/profile',(req,res)=>{
-    res.render('profile',{username: req.session.user.username})
+    let username = req.session.user.username;
+    
+    // console.log(req.session)
+    db.oneOrNone('SELECT full_name, username, pro_url, cov_url, bio FROM users WHERE username = $1',[username])
+    .then((data)=>{
+        // console.log(data)
+        res.render('profile',{
+            fullname: data.full_name,
+            username: req.session.user.username,
+            proimage: data.pro_url,
+            covimage: data.cov_url,
+            bio: data.bio,
+            timestamp: new Date().toDateString()
+        });
+    })
+    
 })
 
 
@@ -129,14 +146,16 @@ app.post('/register',(req,res)=>{
 // //test
     // res.send("Registered!")
 })
-app.post('/setup_profile',(req,res)=>{
-    let fullname = req.body.full_name
-    let bio = req.body.bio
-    let proImg = req.body.pro_id
-    let coverImg = req.body.cov_id
-    let email = req.body.email
-    db.any('SELECT id FROM users WHERE full_name,bio,pro_id,cov_id = $1,$2,$3,$4',[fullname,bio,proImg,coverImg])
-})
+
+
+//     let fullname = req.body.full_name
+//     let bio = req.body.bio
+//     let proImg = req.body.pro_id
+//     let coverImg = req.body.cov_id
+//     let email = req.body.email
+//     db.any('SELECT id FROM users WHERE full_name,bio,pro_id,cov_id = $1,$2,$3,$4',[fullname,bio,proImg,coverImg])
+// })
+
 //logout
 app.get('/logout',(req,res,next)=>{
     if(req.session){
