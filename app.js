@@ -63,7 +63,7 @@ app.get('/users/add-article',(req,res)=>{
 //after login route to here//////////////////////////////////////
 app.get('/users/profile',(req,res)=>{
     let username = req.session.user.username;
-    
+
     // console.log(req.session)
     db.oneOrNone('SELECT full_name, username, pro_url, cov_url, bio FROM users WHERE username = $1',[username])
     .then((data)=>{
@@ -77,9 +77,21 @@ app.get('/users/profile',(req,res)=>{
             timestamp: new Date().toDateString()
         });
     })
-    
 })
 
+app.get('/users/profile', (req,res)=>{
+    let id = req.params.bid;
+    db.oneOrNone('SELECT title, blog_img, user_id FROM blogs WHERE bid = $1',[id])
+    .then((data)=>{
+        // console.log(data)
+        res.render('profile',{
+            title: data.title,
+            blogimage: data.blog_img,
+            usersId: req.session.user.id
+            
+        });
+    })
+});
 
 
 app.post('/login',(req,res)=>{

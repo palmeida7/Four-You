@@ -1,13 +1,18 @@
 let blog = "";
 
-function ReadFile(evt) {
+function ReadFile(evt, id) {
     let FR= new FileReader();
     FR.onload = function(e) {
-        document.getElementById("blog-image").innerHTML = `<img src='${e.target.result}' />`
+        document.getElementById(id).src = e.target.result;
     };
     FR.readAsDataURL(evt.target.files[0]);
-    blog = evt.target.files[0];
+    if (id == "blogimg"){
+        blog = evt.target.files[0];
+    }
+    return evt.target.files[0];
 };
+document.getElementById("postImg").addEventListener("change", (evt)=>ReadFile(evt,"blogimg"), false);
+
 
 const uploadToServer = (evt) =>{
     const formData = new FormData();

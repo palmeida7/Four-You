@@ -9,11 +9,9 @@ const updateRoute = (app,db)=>{
         })
         .on('fileBegin', (name, file) => {
             file.path = __dirname.replace('/routes',"") + '/public/images/' + new Date().getTime() + file.name;
-            // console.log(file);
         })
         .on('file', (name, file) => {
             form[name] = file.path.replace(__dirname+'/public',"");
-            // console.log(file);
         })
         .on('end', async ()=>{
             console.log(form);
