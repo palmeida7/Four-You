@@ -28,6 +28,9 @@ fourYou is an interactive site that allows users to experience a personalized en
 
 **Contributions:** Oversaw creative layout design of webpages. Created About page.
 
+## Screenshot:
+![](public/readme_images/explorer_ss.jpg)
+
 ## What we used:
 ### Languages:
 - HTML5
