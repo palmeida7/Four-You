@@ -1,5 +1,7 @@
 # fourYou
-https://github.com/mikecadima/Full-Stack-Project/issues/62#issue-672905881
+
+![](public/readme_images/readMe_.png)
+
 ## Overview: 
 fourYou is an interactive site that allows users to experience a personalized environment with their posts and thoughts. 
 
@@ -17,7 +19,7 @@ fourYou is an interactive site that allows users to experience a personalized en
 ### PJ Almeida: https://github.com/palmeida7
 **Primary team role:** Project Coordinator; Front-End markup and styling, concepting and Javascript Function writer
 
-**Contributions:** Oversaw project coordination. Utilized Trello to track team progess Assisted in design layout and javascript functions. Created database and tables. Created technical document.
+**Contributions:** Oversaw project coordination. Utilized Trello to track team progess Assisted in design layout and javascript functions. Created databases. Created technical document.
 
 ### Ivan Davis: https://github.com/techbyivan
 **Primary team role:** Lead UI/UX Designer; Front-End markup and styling, concepting and Javascript Function writer
