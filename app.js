@@ -49,8 +49,10 @@ app.use(session({
 }))
 app.use(bodyParser.urlencoded({extended:false}))
 const updateRoute = require('./routes/setup');
+const postRoute = require('./routes/blog');
 const crudroutes = require('./crud');
 updateRoute(app,db);
+postRoute(app,db);
 crudroutes(app,db);
 app.get('/users/add-article',(req,res)=>{
     res.render('add-article')
@@ -99,7 +101,6 @@ app.get('/login',(req,res) =>{
 app.post('/register',(req,res)=>{
     let username = req.body.username
     let password = req.body.password
-
     db.oneOrNone('SELECT id FROM users WHERE username = $1',[username])
     .then((user)=>{
         if(user){
@@ -107,30 +108,26 @@ app.post('/register',(req,res)=>{
         }else{
             bcrypt.hash(password,SALT_ROUNDS,function(error,hash){
                 if(error == null){
-                    db.none('INSERT INTO users(username,password) VALUES ($1,$2)',[username,hash]) 
+                    db.none('INSERT INTO users(username,password) VALUES ($1,$2)',[username,hash])
                     .then(()=>{
                         // res.redirect('/setup_profile')
                         res.redirect('/login')
-
                     })
                 }
             })
             // //insert user into user table
             // db.none('INSERT INTO users (username,password) VALUES($1,$2)', [username,password])
             // // db.none('INSERT INTO users (username,password,email) VALUES($1,$2,$3,$4)', [username,email,password])
-
             // .then(()=>{
             //     res.send('SUCCESS')
             // })
         }
     })
-
 //test
 //     console.log(username)
 //     console.log(password)
 // //test
     // res.send("Registered!")
-
 })
 app.post('/setup_profile',(req,res)=>{
     let fullname = req.body.full_name
@@ -138,12 +135,9 @@ app.post('/setup_profile',(req,res)=>{
     let proImg = req.body.pro_id
     let coverImg = req.body.cov_id
     let email = req.body.email
-
     db.any('SELECT id FROM users WHERE full_name,bio,pro_id,cov_id = $1,$2,$3,$4',[fullname,bio,proImg,coverImg])
 })
-
 //logout
-
 app.get('/logout',(req,res,next)=>{
     if(req.session){
         req.session.destroy((error)=>{
@@ -155,7 +149,6 @@ app.get('/logout',(req,res,next)=>{
         })
     }
 })
-
   //page routes----------------
 app.get('/', function(req, res) {
     res.render('login', { });
@@ -181,13 +174,9 @@ app.get('/register', function(req, res) {
 app.get('/setup_profile', function(req, res) {
     res.render('setup_profile', { });
 });
-
-  app.get('/profile', function(req, res) {
+app.get('/profile', function(req, res) {
     res.render('profile', { });
-  });
-
-
-
+});
 
 // html render
 app.get('/profile',(req,res)=>{
@@ -196,14 +185,8 @@ app.get('/profile',(req,res)=>{
 app.get('/setup',(req,res)=>{
     res.render('setup');
 });
-
 // display content
-app.post('/profile-info', function(req,res))
-
-
-
-
-
+// app.post('/profile-info', function(req,res))
 app.listen(port, ()=>{
     console.log(`listening on http://localhost:${port}`)
 })

@@ -29,7 +29,7 @@
 
 <section class="field mt-6 mr-6 ml-6">
 <div class="field">
-<label class="label">Image Title</label>
+<label id="imgTitle" class="label">Image Title</label>
     <div class="control">
         <input class="input" type="text" placeholder="enter title">
     </div>
@@ -45,7 +45,8 @@
 <label class="label">Upload Image</label>
 <div class="file is-boxed">
 <label class="file-label">
-    <input class="file-input" type="file" name="resume">
+    <div id="blog-image"></div>
+    <input id="postImg" class="file-input" type="file" name="resume">
         <span class="file-cta">
             <span class="file-icon">
                 <i class="fas fa-upload"></i>
@@ -61,15 +62,16 @@
 <!-- ////////////////////////////////////////////////////////////////////// -->
 <div class="field is-grouped mt-6">
 <div class="control">
-    <button class="button is-link ">Submit</button>
+    <button id="submit" class="button is-link ">Submit</button>
 </div>
 <div class="control">
     <button class="button is-light"><a href="/explorer">Cancel</a></button>
 </div>
 </div>
 </section>
+<script src="/js/newblog.js" type="module"></script>
 
 
 {{> footer}}
-  </body>
+</body>
 </html>
