@@ -51,7 +51,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 const imageRoute = require('./routes/image');
 const updateRoute = require('./routes/setup');
 const postRoute = require('./routes/blog');
-const crudroutes = require('./crud');
+// const crudroutes = require('./crud');
 const deletePost = require('./routes/delete');
 updateRoute(app,db);
 postRoute(app,db);
@@ -67,12 +67,13 @@ const profileRoute = require('./routes/a_profile');
 const createpostRoute = require('./routes/a_post');
 const loginRoute = require('./routes/a_login');
 const registerRoute = require('./routes/a_register');
+const exploreRoute = require('./routes/a_explore');
 
 profileRoute(app,db);
 // createpostRoute(app,db);
 loginRoute(app,db);
 registerRoute(app,db);
-
+exploreRoute(app,db);
 
 
 //logout
@@ -109,7 +110,7 @@ app.get('/register', function(req, res) {
 app.get('/setup_profile', function(req, res) {
     res.render('setup_profile', { });
 });
-app.get('/profile', function(req, res) {
+app.get('/users/profile', function(req, res) {
     res.render('profile', { });
 });
 
