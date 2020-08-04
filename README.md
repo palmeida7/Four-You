@@ -5,6 +5,8 @@
 ## Overview: 
 fourYou is an interactive site that allows users to experience a personalized environment with their posts and thoughts. 
 
+![](public/readme_images/fourYOU_userFlow.png)
+
 ## The Team: team of four members operating remotely.
 ### Eric Yim: https://github.com/tknyim
 **Primary team role:** Team Lead; Front-End markup and styling, Javascript Function writer
