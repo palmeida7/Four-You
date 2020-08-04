@@ -52,10 +52,12 @@ const imageRoute = require('./routes/image');
 const updateRoute = require('./routes/setup');
 const postRoute = require('./routes/blog');
 const crudroutes = require('./crud');
+const deletePost = require('./routes/delete');
 updateRoute(app,db);
 postRoute(app,db);
 imageRoute(app,db);
-crudroutes(app,db);
+deletePost(app,db);
+// crudroutes(app,db);
 // app.get('/users/add-article',(req,res)=>{
 //     res.render('add-article')
 // })
