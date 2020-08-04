@@ -22,8 +22,8 @@ const postRoute = (app,db)=>{
             form.title = form.title || "Title"
             
             let postInfo = await db.one(`
-            INSERT INTO blogs (title, date_created, blog_img, user_id)
-            VALUES ('${form.title}','${date}','${form.blog_upload.replace(/^.*[\\\/]/, '')}','${userId}') 
+            INSERT INTO blogs (title,,date_created, blog_img, user_id)
+            VALUES ('${form.title}','${form.blog_upload.replace(/^.*[\\\/]/, '')}','${userId}') 
             RETURNING *
             `)
             console.log(postInfo)
