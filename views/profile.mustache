@@ -11,7 +11,7 @@
 
     
    <section class="hero is-primary is-bold">
-    <div class="hero-body">
+<div class="hero-body">
     <!-- <div class="container"> -->
         <!-- <h1 class="title">
             Login 
@@ -37,12 +37,12 @@
         <div class="greetTime"> 
         
     </div>
-    </div>
+</div>
     <!-- greetings section  -->
     
         <!-- <h1>Greetings <%= name %></h1> -->
-    <form class="box" action="/logout?_method=DELETE" method="POST">
-    <!-- <button class="button is-primary is-pulled-right" type="submit">Log Out</button></form> -->
+    {{! <form class="box" action="/logout?_method=DELETE" method="POST"> }}
+    {{! <button class="button is-primary is-pulled-right" type="submit">Log Out</button></form>  }}
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
     <!-- SEARCH SECTION-->
     <!-- ////////////////////////////////////////////////////////////////////// -->
     <!-- Left side -->
-    <div class="level-left ml-4">
+    {{! <div class="level-left ml-4">
         <div class="level-item">
             <p class="subtitle is-5">
                 <strong>123</strong> posts
@@ -114,7 +114,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </div> }}
     
     <!-- RIGHT SIDE OF NAV CONTROLS -->
     <!-- ////////////////////////////////////////////////////////////////////// -->
@@ -123,8 +123,9 @@
         <p class="level-item"><a>Liked</a></p>
         <p class="level-item"><a>Disliked</a></p>
         <p class="level-item"><a>Deleted</a></p>
-        <p class="level-item"><a>Messages</a></p>
-        <p class="level-item"><a href="/newpost" class="button is-black">New</a></p>
+        <p class="level-item"><a href="/explorer" class="button is-light">Explorer</a></p>
+        <p class="level-item"><a href="/messages" class="button is-warning">Messages</a></p>
+        <p class="level-item"><a href="/newpost" class="button is-link">New</a></p>
     </div>
     </nav>
     </section>
@@ -199,5 +200,5 @@
     
 
 {{> footer}}
-  </body>
+</body>
 </html>

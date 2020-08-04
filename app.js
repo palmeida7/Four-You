@@ -181,10 +181,9 @@ app.get('/register', function(req, res) {
 app.get('/setup_profile', function(req, res) {
     res.render('setup_profile', { });
 });
-
-  app.get('/profile', function(req, res) {
+app.get('/profile', function(req, res) {
     res.render('profile', { });
-  });
+});
 
 
 
@@ -198,7 +197,7 @@ app.get('/setup',(req,res)=>{
 });
 
 // display content
-app.post('/profile-info', function(req,res))
+// app.post('/profile-info', function(req,res))
 
 
 

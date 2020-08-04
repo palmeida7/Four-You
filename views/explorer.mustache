@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
-    <head>
-    {{> header}}
-    <title>Explore</title>
+  <head>
+   {{> header}}
+    <title>Login</title>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    </head>
-    <body>
-
+  </head>
+  <body>
+  
     {{> menu}}
 
     {{username}}
-    {{! <h1>Explorer</h1> }}
+   {{! <h1>Explorer</h1> }}
 		
 <!-- HERO SECTION -->
 <!-- //////////////////////////////////////////////////////////////////////// -->		
@@ -29,9 +29,9 @@
 
 <!-- START RE-PASTING HERE -->
 <section>
-<nav class="level mt-4">
+{{! <nav class="level mt-4"> }}
 <!-- Left side -->
-<div class="level-left ml-4">
+{{! <div class="level-left ml-4">
     <div class="level-item">
         <p class="subtitle is-5">
             <strong>123</strong> posts
@@ -51,15 +51,16 @@
             </p>
         </div>
     </div>
-</div>
+</div> }}
 
 <!-- RIGHT SIDE OF NAV CONTROLS -->
 <!-- ////////////////////////////////////////////////////////////////////// -->
-<div class="level-right mr-4">
+
+<div class="level-right is-grouped-right mt-6 mr-4">
     <p class="level-item"><strong>All</strong></p>
     <p class="level-item"><a>Liked</a></p>
     <p class="level-item"><a>Disliked</a></p>
-    <p class="level-item"><a href="/newpost" class="button is-black">New</a>
+    {{! <p class="level-item"><a href="/newpost" class="button is-black">New</a> }}
     {{! <a class="button is-black">New</a> }}
     </p>
 </div>
