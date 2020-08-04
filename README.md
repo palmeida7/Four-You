@@ -1,5 +1,5 @@
 # fourYou
-###post image here
+https://user-images.githubusercontent.com/65964734/89316428-1b2bca00-d64a-11ea-9011-8bb032a0a297.png
 ## Overview: 
 fourYou is an interactive site that allows users to experience a personalized environment with their posts and thoughts. 
 
