@@ -1,5 +1,5 @@
 # fourYou
-[GitHub](https://github.com/mikecadima/Full-Stack-Project/issues/62#issue-672905881)
+https://github.com/mikecadima/Full-Stack-Project/issues/62#issue-672905881
 ## Overview: 
 fourYou is an interactive site that allows users to experience a personalized environment with their posts and thoughts. 
 
