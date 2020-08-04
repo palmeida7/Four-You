@@ -20,18 +20,14 @@ const postRoute = (app,db)=>{
             let userId = req.session.user.userId
             
             form.title = form.title || "Title"
-            let blogImg = await db.one(`
-            INSERT INTO images (img_url) 
-            VALUES ('${form.blog_upload}') RETURNING *
-            `);
             
-            let bio = await db.one(`
+            let postInfo = await db.one(`
             INSERT INTO blogs (title, user_id, blog_Img)
-            VALUES ('${form.title}','${userId}','${blogImg.id}') 
+            VALUES ('${form.title}','${userId}','${form.blog_upload.replace(/^.*[\\\/]/, '')}') 
             RETURNING *
             `)
-            console.log(bio)
-            res.send(bio)
+            console.log(postInfo)
+            res.send(postInfo)
         })
         
     });
