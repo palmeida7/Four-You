@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <head>
-   {{> header}}
-    <title>Profile</title>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head>
-  <body>
-  
+    <head>
+        {{> header}}
+        <title>Profile</title>
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    </head>
+    <body>
+
     {{> menu}}
 
     
-   <section class="hero is-primary is-bold">
-<div class="hero-body">
+    <section class="hero is-primary is-bold">
+    <div class="hero-body">
     <!-- <div class="container"> -->
         <!-- <h1 class="title">
             Login 
@@ -37,12 +37,12 @@
         <div class="greetTime"> 
         
     </div>
-</div>
+    </div>
     <!-- greetings section  -->
     
         <!-- <h1>Greetings <%= name %></h1> -->
     {{! <form class="box" action="/logout?_method=DELETE" method="POST"> }}
-    {{! <button class="button is-primary is-pulled-right" type="submit">Log Out</button></form>  }}
+    <!-- <button class="button is-primary is-pulled-right" type="submit">Log Out</button></form> -->
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
             
     <section>
         <figure class="image is-3by1">
-            <img src="https://bulma.io/images/placeholders/720x240.png">
+            <img id="coverimgsrc" src="/image/{{cov_url}}">
         </figure>
     </section>
     
@@ -72,13 +72,13 @@
             <div class="media">
             <div class="media-left">
                 <figure class="image is-48x48">
-                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                    <img id="profileimgsrc" class="is-rounded" src="/image/{{pro_url}}">
                 </figure>
             </div>
             <div class="media-content">
-                <p class="title is-4">{{fullname}}</p>
+                <p class="title is-4">{{full_name}}</p>
                 <p class="subtitle is-6">@{{username}}</p>
-                <p class="subtitle is-6">{{email}}</p>
+                <p class="subtitle is-6">{{bio}}</p>
 
             </div>
             <div class="buttons ml-4">
@@ -93,8 +93,8 @@
     
     <!-- SEARCH SECTION-->
     <!-- ////////////////////////////////////////////////////////////////////// -->
-    <!-- Left side -->
-    {{! <div class="level-left ml-4">
+    {{! <!-- Left side -->
+    <div class="level-left ml-4">
         <div class="level-item">
             <p class="subtitle is-5">
                 <strong>123</strong> posts
@@ -118,29 +118,29 @@
     
     <!-- RIGHT SIDE OF NAV CONTROLS -->
     <!-- ////////////////////////////////////////////////////////////////////// -->
-    <div class="level-right mr-4">
+    {{! <div class="level-right mr-4">
         <p class="level-item"><strong>All</strong></p>
         <p class="level-item"><a>Liked</a></p>
         <p class="level-item"><a>Disliked</a></p>
         <p class="level-item"><a>Deleted</a></p>
-        <p class="level-item"><a href="/explorer" class="button is-light">Explorer</a></p>
-        <p class="level-item"><a href="/messages" class="button is-warning">Messages</a></p>
-        <p class="level-item"><a href="/newpost" class="button is-link">New</a></p>
-    </div>
+        <p class="level-item"><a>Messages</a></p>
+        <p class="level-item"><a href="/newpost" class="button is-black">New</a></p>
+    </div> }}
     </nav>
     </section>
     
     <!-- START OF CARD SECTION #1-->
     <!-- ////////////////////////////////////////////////////////////////////// -->
     <!-- CARD 1 -->
-        <div class="columns">
-            <div class="column is-one-third">
-                <div class="card mt-4 ml-5">
-                    <div class="card-content">
-                        <h2 class="title">Image Title#1</h2>
-                        <h4 class="subtitle">User-name & Timestamp</h4>
-    
-                        <a href="https://placeholder.com"><img src="https://via.placeholder.com/500"></a>
+        {{#posts}}
+            <div class="columns is-multiline">
+                <div class="column is-one-third">
+                    <div class="card mt-4 ml-5">
+                        <div class="card-content">
+                            <h2 class="title">{{title}}</h2>
+                            <h4 class="subtitle">@{{username}} & {{date_created}}</h4>
+        
+                        <a href="https://placeholder.com"><img src="/image/{{blog_img}}"></a>
                     </div>
                     <footer class="card-footer">
                         <div class="card-footer-item">
@@ -151,10 +151,10 @@
                     </footer>
                 </div>
             </div>
-        
+        {{/posts}}
     <!-- CARD 2 -->
     <!-- ////////////////////////////////////////////////////////////////////// -->
-            <div class="column is-one-third">
+            {{! <div class="column is-one-third">
                 <div class="card mt-4 ml-5">
                     <div class="card-content">
                         <h2 class="title">Image Title#2</h2>
@@ -182,7 +182,7 @@
         <h4 class="subtitle">User-name & Timestamp</h4>
     
         <a href="https://placeholder.com"><img src="https://via.placeholder.com/500"></a>
-    </div>
+    </div> }}
     <footer class="card-footer">
         <div class="card-footer-item">
             <a href="#" class="button is-danger">
@@ -194,11 +194,11 @@
     </footer>
     </div>
     </div>
-    
+    <script></script>
     <!-- END OF CARD ROW -->
     <!-- //////////////////////////////////////////////////////////////////////////// -->
     
 
 {{> footer}}
-</body>
+    </body>
 </html>

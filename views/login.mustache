@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <head>
-   <!-- {{> header}} -->
+<head>
+	<!-- {{> header}} -->
 
-   <linkrel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 		/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
 		/>
 
-    <title>Login</title>
-  </head>
-  <body>
-	  <!-- navbar ------------------------------>
+	<title>Login</title>
+	</head>
+<body>
+	<!-- navbar ------------------------------>
 	<nav class="navbar is-black" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
 			<div class="navbar-brand">
@@ -41,27 +41,27 @@
 
     <form action="/login" method="POST">
 
-      <!-- <div class="form-group"> -->
+    <!-- <div class="form-group"> -->
 		<div class="feild">
 
 		<label class="label has-text-white" for="exampleInputEmail1">User Name</label>
 		<div class="control has-icons-left has-icons-right">
         <input class="input" style="width: 450px;" type="text" name="username" class="form-control" 
-		 placeholder="Enter User Name">
-		 </div>
-      </div>
+		placeholder="Enter User Name">
+		</div>
+    {{! </div> }}
 
-      <!-- <div class="form-group"> -->
+    <!-- <div class="form-group"> -->
 		<div class="feild">
 			<div class="control has-icons-left has-icons-right">
 
         <label class="label has-text-white" for="exampleInputPassword1">Password</label>
         <input class="input" style="width: 450px;" type="password" name="password" class="form-control" 
-         placeholder="Password">
-	  </div>
+        placeholder="Password">
 		</div>
+		{{! </div> }}
 
-      <!-- TERMS FIELD -->
+    <!-- TERMS FIELD -->
 <!-- //////////////////////////////////////////////////////////////////////// -->
 <div class="field">
 	<div class="control">
@@ -70,9 +70,9 @@
 				<input type="checkbox">
 					I agree to the terms and conditions</a>
 
-	  <button type="submit" class="button is-primary">Submit</button>
+	<button type="submit" class="button is-primary">Submit</button>
 
-	  <!-- <button href="/register" type="button" class="btn btn-primary" >Register</button> -->
+	<!-- <button href="/register" type="button" class="btn btn-primary" >Register</button> -->
 		<a href="/register" class="button">Register Now!</a>
       {{#message}}
 <div class="alert alert-danger" role="alert">
