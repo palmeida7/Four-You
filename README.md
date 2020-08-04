@@ -28,9 +28,6 @@ fourYou is an interactive site that allows users to experience a personalized en
 
 **Contributions:** Oversaw creative layout design of webpages. Created About page.
 
-## Screenshot:
-![](public/readme_images/explorer_ss.jpg)
-
 ## What we used:
 ### Languages:
 - HTML5
@@ -81,6 +78,8 @@ fourYou is an interactive site that allows users to experience a personalized en
 - Implementing data div with Weather API and time counter function
 
 ## Stretch Goals Future
+![](public/readme_images/explorer_ss.jpg)
+
 - Allowing users to create personal profiles and connect with each other and comment 
 - Implementing searchability of posts
 - Creating private message system between users
