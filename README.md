@@ -4,6 +4,7 @@
 
 ## Overview: 
 fourYou is an interactive site that allows users to experience a personalized environment with their posts and thoughts. 
+###Secure * Personalized * Interactive * Fun...fourYou!
 
 ![](public/readme_images/fourYOU_userFlow.png)
 
