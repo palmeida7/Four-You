@@ -3,7 +3,7 @@ const app = express();
 //mike addition
 const mustacheExpress = require('mustache-express')
 const bodyParser = require('body-parser')
-const bcrypt = require('bcrypt')
+// const bcrypt = require('bcrypt')
 const session = require('express-session')
 const path = require('path')
 // const methodOverride = require('method-override')
@@ -22,7 +22,7 @@ const port = 3445;
 
 //mike addition
 const CONNECTION_STRING = "postgres://localhost:5432/foryou"
-const SALT_ROUNDS = 10 
+// const SALT_ROUNDS = 10 
 const VIEWS_PATH = path.join(__dirname,'/views')
 
 const db = pgp(CONNECTION_STRING)
@@ -56,133 +56,35 @@ updateRoute(app,db);
 postRoute(app,db);
 imageRoute(app,db);
 crudroutes(app,db);
-app.get('/users/add-article',(req,res)=>{
-    res.render('add-article')
-})
-
-//after login route to here//////////////////////////////////////
-app.get('/users/profile',(req,res)=>{
-    let username = req.session.user.username;
-
-    // console.log(req.session)
-    db.oneOrNone('SELECT full_name, username, pro_url, cov_url, bio FROM users WHERE username = $1',[username])
-    .then((data)=>{
-        // console.log(data)
-        res.render('profile',{
-            fullname: data.full_name,
-            username: req.session.user.username,
-            proimage: data.pro_url,
-            covimage: data.cov_url,
-            bio: data.bio,
-            timestamp: new Date().toDateString()
-        });
-    })
-})
-
-app.get('/users/profile', (req,res)=>{
-    let id = req.params.bid;
-    db.oneOrNone('SELECT title, blog_img, user_id FROM blogs WHERE bid = $1',[id])
-    .then((data)=>{
-        // console.log(data)
-        res.render('profile',{
-            title: data.title,
-            blogimage: data.blog_img,
-            usersId: req.session.user.id
-            
-        });
-    })
-});
-
-
-app.post('/login',(req,res)=>{
-    let username = req.body.username
-    let password = req.body.password
-
-    db.oneOrNone('SELECT id,username,password FROM users WHERE username = $1',[username])
-    .then((user)=>{
-        if(user){
-            bcrypt.compare(password,user.password,function(error,result){
-                if(result){
-                    //username and id session
-                    if(req.session){
-                        req.session.user = {userId: user.id, username: user.username}
-                    }
-
-                    //send to next page
-                    // res.send("success!")
-                    res.redirect('users/profile')
-
-                }else{
-                    res.render('login',{message:"Invalid username or password!"})
-
-                }
-            })
-        }else{
-            res.render('login',{message:"Invalid username or password!"})
-        }
-    })
-})
-
-app.get('/login',(req,res) =>{
-    res.render('login')
-})
-
-app.post('/register',(req,res)=>{
-    let username = req.body.username
-    let password = req.body.password
-    db.oneOrNone('SELECT id FROM users WHERE username = $1',[username])
-    .then((user)=>{
-        if(user){
-            res.render('register',{message:"Username already exists!"})
-        }else{
-            bcrypt.hash(password,SALT_ROUNDS,function(error,hash){
-                if(error == null){
-                    db.none('INSERT INTO users(username,password) VALUES ($1,$2)',[username,hash])
-                    .then(()=>{
-                        // res.redirect('/setup_profile')
-                        res.redirect('/login')
-                    })
-                }
-            })
-            // //insert user into user table
-            // db.none('INSERT INTO users (username,password) VALUES($1,$2)', [username,password])
-            // // db.none('INSERT INTO users (username,password,email) VALUES($1,$2,$3,$4)', [username,email,password])
-            // .then(()=>{
-            //     res.send('SUCCESS')
-            // })
-        }
-    })
-//test
-//     console.log(username)
-//     console.log(password)
-// //test
-    // res.send("Registered!")
-})
-
-
-//     let fullname = req.body.full_name
-//     let bio = req.body.bio
-//     let proImg = req.body.pro_id
-//     let coverImg = req.body.cov_id
-//     let email = req.body.email
-//     db.any('SELECT id FROM users WHERE full_name,bio,pro_id,cov_id = $1,$2,$3,$4',[fullname,bio,proImg,coverImg])
+// app.get('/users/add-article',(req,res)=>{
+//     res.render('add-article')
 // })
 
+//after login route to here//////////////////////////////////////
+const profileRoute = require('./routes/a_profile');
+const createpostRoute = require('./routes/a_post');
+const loginRoute = require('./routes/a_login');
+const registerRoute = require('./routes/a_register');
+
+profileRoute(app,db);
+// createpostRoute(app,db);
+loginRoute(app,db);
+registerRoute(app,db);
+
+
+
 //logout
-app.get('/logout',(req,res,next)=>{
-    if(req.session){
-        req.session.destroy((error)=>{
-            if(error){
-                next(error)
-            } else {
-                res.redirect('/login')
-            }
-        })
-    }
-})
+const logoutRoute = require('./routes/a_logout')
+logoutRoute(app);
+
+
+
   //page routes----------------
 app.get('/', function(req, res) {
     res.render('login', { });
+});
+app.get('/login',(req,res) =>{
+    res.render('login')
 });
 app.get('/messages', function(req, res) {
     res.render('messages', { });
@@ -209,15 +111,8 @@ app.get('/profile', function(req, res) {
     res.render('profile', { });
 });
 
-// html render
-app.get('/profile',(req,res)=>{
-    res.render('profile');
-});
-app.get('/setup',(req,res)=>{
-    res.render('setup');
-});
-// display content
-// app.post('/profile-info', function(req,res))
+
+
 app.listen(port, ()=>{
     console.log(`listening on http://localhost:${port}`)
 })
